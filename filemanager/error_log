@@ -1,0 +1,128 @@
+[13-Oct-2017 00:08:34 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[13-Oct-2017 00:09:36 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[13-Oct-2017 00:10:39 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[13-Oct-2017 05:12:07 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[10-Nov-2017 14:27:08 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:27:17 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_1.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:28:07 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_2.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:28:42 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_3.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:28:50 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_4.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:29:13 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_5.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:30:09 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_6.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:32:00 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_7.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:32:26 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_8.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:32:39 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_2_1486867122_9.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:33:06 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:33:27 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1_1.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:33:51 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1_2.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:34:46 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1_3.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:35:19 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_3_1486867122.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:36:19 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1_4.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:36:39 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-sgk-hoa-hoc-11_3_1486867122_1.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:37:27 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105_Hoa11_1_5.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 14:41:31 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-3-trang-105-Hoa11_3.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-3...', '../thumbs/bai-3...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[10-Nov-2017 15:08:13 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../source/bai-7-trang-108-sgk-hoa-hoc-11_3.jpg is missing or invalid' in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/hoa1024b8/public_html/filemanager/include/utils.php(215): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/hoa1024b8/public_html/filemanager/upload.php(111): create_img('../source/bai-7...', '../thumbs/bai-7...', 122, 91)
+#2 {main}
+  thrown in /home/hoa1024b8/public_html/filemanager/include/php_image_magician.php on line 346
+[23-Dec-2017 17:36:42 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[23-Dec-2017 17:46:46 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[23-Dec-2017 21:48:23 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
+[20-Jan-2018 21:58:47 Europe/Rome] PHP Notice:  Undefined index: RF in /home/hoa1024b8/public_html/filemanager/include/utils.php on line 3
