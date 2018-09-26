@@ -53,30 +53,9 @@ $route['default_controller'] = 'home/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['(:any)/(:any)\-(:num).html'] = 'question/ques/$3';
+$route['gioi-thieu.html']	= "post/introduce";
 
-$route['wp-admin']	= "wp-admin/home";
-
-/* Category */
-$route['(:any)/(:any).html']	= "subject/thematic/$2";
-
-$route['(:any)/(:any)/noi-dung-ly-thuyet/add-new.html']	= "subject/addtheory/$2";
-$route['(:any)/(:any)/noi-dung-ly-thuyet/update.html']	= "subject/updateTheory/$2";
-
-$route['(:any)/(:any)/noi-dung-ly-thuyet.html']	= "subject/category/$2/1";
-$route['(:any)/(:any)/bai-tap-co-ban.html']		= "subject/category/$2/2";
-$route['(:any)/(:any)/bai-tap-nang-cao.html']	= "subject/category/$2/3";
-$route['(:any)/(:any)/hoi-dap.html']	= "subject/category/$2/4";
-
-$route['hoa-hoc-8.html']	= "subject/course/hoa-hoc-8";
-$route['hoa-hoc-9.html']	= "subject/course/hoa-hoc-9";
-$route['hoa-hoc-10.html']	= "subject/course/hoa-hoc-10";
-$route['hoa-hoc-11.html']	= "subject/course/hoa-hoc-11";
-$route['hoa-hoc-12.html']	= "subject/course/hoa-hoc-12";
-$route['luyen-thi-dai-hoc.html'] = "subject/course/luyen-thi-dai-hoc";
-
-
-$route['(:any)/(:any)/(:any).html']	= "subject/chapter/$3";
+$route['p-admin']	= "p-admin/dashboard";
 
 
 

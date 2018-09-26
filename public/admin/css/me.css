@@ -1,0 +1,38 @@
+/* helper classses */
+.pcode-hidden {
+    display: none;
+}
+
+.pcode-right {
+  margin-right: 0px;
+}
+
+.pcode-btn {
+  margin-top: 26px;
+}
+
+#p_media {
+	width: 400px;
+}
+
+/* box component */
+
+.box {
+	border-color: #e6e6e6;
+	background: #FFF;
+	border-radius: 6px;
+}
+
+.box-center {
+	margin: 20px auto;
+}
+
+.img-thumbnail{
+  margin-top: 5px;
+}
+
+
+/* input [type = file]
+----------------------------------------------- */
+
+

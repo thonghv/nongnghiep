@@ -38,10 +38,10 @@ body{
     font-family:'Open Sans', sans-serif
 }
 .header{
-    background:url("../../img/banner.jpg")no-repeat 0px 0px;
+    /*background:url("../../img/banner.jpg")no-repeat 0px 0px; */
     background-size:cover;
-    min-height:790px;
-    text-align:center;
+    min-height:590px;
+    /* text-align:center; */
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
@@ -2605,8 +2605,8 @@ a.global_subnote_fa:hover{
     }
     @font-face{
         font-family:'icomoon';
-        src:url('/menu_mb/fonts/icomoon.eot');
-        src:url('/menu_mb/fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('/menu_mb/fonts/icomoon.woff') format('woff'), url('/menu_mb/fonts/icomoon.ttf') format('truetype'), url('/menu_mb/fonts/icomoon.svg#icomoon') format('svg');
+        src:url('../../font-awesome/fonts/icomoon.eot');
+        src:url('../../font-awesome/fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('/font-awesome/fonts/icomoon.woff') format('woff'), url('/font-awesome/fonts/icomoon.ttf') format('truetype'), url('/font-awesome/fonts/icomoon.svg#icomoon') format('svg');
         font-weight:normal;
         font-style:normal
     }
@@ -2733,7 +2733,7 @@ a.global_subnote_fa:hover{
         font-family:'icomoon';
         speak:none;
         -webkit-font-smoothing:antialiased;
-        content:"\e000";
+        /* content:"\e000"; */
         opacity:0.64;
         font-size:11px
     }

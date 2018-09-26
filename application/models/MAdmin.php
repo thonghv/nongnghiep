@@ -1,0 +1,143 @@
+<?php
+
+class MAdmin extends CI_Model {
+
+	/* variable common */
+	private $_group_menu = "p_group_menu";
+	private $_sub_menu = 'p_sub_menu';
+
+    function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }
+
+    /* Get menu list all */
+    public function getGroupsMenu() {
+        $query=$this->db->query('SELECT *FROM '.$this->_group_menu);
+        return $query->result();
+    }
+
+    /* Get menu by id*/
+    public function getGroupsMenuById($id) {
+        $query=$this->db->query('SELECT *FROM '.$this->_group_menu.' WHERE id = '.$id);
+        return $query->result();
+    }
+
+    /* Get sub menu list all */
+    public function getGroupSubMenu() {
+        $query=$this->db->query('SELECT *FROM '.$this->_sub_menu);
+        return $query->result();
+    }
+
+    /* Get sub menu by id of menu */
+    public function getGroupSubMenuById($groupId) {
+        $query=$this->db->query('SELECT *FROM '.$this->_sub_menu.' WHERE group_id ='.$groupId);
+        return $query->result();
+    }
+
+    /* On update menu */
+    public function updateGroupMenu($id, $data){
+        $this->db->where("id", $id); 
+        return $this->db->update("p_group_menu", $data); 
+    }
+
+    /* Remove group menu */
+    public function onRemoveGroupMenu($id){
+        $this->db->where("id", $id);
+        $this->db->delete($this->_group_menu);
+    }
+
+    /* On update sub menu */
+    public function updateSubMenu($id, $data){
+        $this->db->where("id", $id); 
+        return $this->db->update($this->_sub_menu, $data); 
+    }
+
+    /* Remove sub menu */
+    public function onRemoveSubMenu($id){
+        $this->db->where("id", $id);
+        $this->db->delete($this->_sub_menu);
+    }
+
+    /**
+     * Insert data P_GROUP_MENU
+     */
+    public function addGroupMenu($data) {
+        $this->db->insert("p_group_menu", $data);
+        return $this->db->insert_id();
+    }
+
+    /**
+     * Insert data P_SUB_MENU
+     */
+    public function addSubMenu($data) {
+        $this->db->insert("p_sub_menu", $data);
+        return $this->db->insert_id();
+    }
+
+    /** =====================================================
+    /** Start Slide
+
+    /* Get all slide */
+    public function getSlide() {
+        $query=$this->db->query('SELECT *FROM p_slide');
+        return $query->result();
+    }
+
+    /**
+     * Insert data P_SLIDE
+     */
+    public function addSlide($data) {
+        $this->db->insert("p_slide", $data);
+        return $this->db->insert_id();
+    }
+
+    /**
+     * Delete data P_SLIDE
+     */
+    public function emptySlide() {
+        $this->db->from('p_slide');
+        $this->db->truncate();
+    }
+
+    /** ENd Slide
+    /** =====================================================
+
+    /**
+    * Update image slider
+    */
+    function updateSlide($data,$masp){
+        $this->db->where('id', $masp); 
+        $query=$this->db->get("dbola_home_slide"); 
+            if($query->num_rows()<1) //Khong ton tai ma quang cao
+            { 
+              return FALSE;
+          } 
+          else { 
+              $this->db->where('id', $masp); 
+              $this->db->update("dbola_home_slide",$data);     
+              return TRUE;
+          }   
+      }
+
+    /**
+    * Upload image and resize
+    */
+    public function do_upload($nameimg){
+        $config = array('upload_path'   => './public/img-slide',
+            'allowed_types' => 'gif|jpg|png',
+            'max_size'      => '4000');
+        $this->load->library("upload",$config);
+        $this->upload->initialize($config);
+
+        if(!$this->upload->do_upload($nameimg)){
+            $error = array($this->upload->display_errors());
+        }else{
+            $image_data = $this->upload->data();
+             //kết thúc công đoạn upload hình ảnh
+
+            //kết thúc công đoạn resize lại hình ảnh    
+        }
+
+    }
+}

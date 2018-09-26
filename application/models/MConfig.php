@@ -1,7 +1,8 @@
 <?php
 
 class MConfig extends CI_Model {
-	protected $_table="ex_config";
+	protected $_table="p_config";
+    
     function __construct() {
         parent::__construct();
         $this->load->database();
