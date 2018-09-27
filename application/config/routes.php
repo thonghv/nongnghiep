@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['gioi-thieu.html']	= "post/introduce";
 
 $route['p-admin']	= "p-admin/dashboard";
+$route['p-admin/add-product.html']	= "p-admin/addproduct";
 
 
 

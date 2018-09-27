@@ -69,7 +69,7 @@
     reader.onload = function(e) {
       $('#pre_img_' + index)
       .attr('src', e.target.result)
-      .width(320);
+      .width(290);
       $("#pre_img_" + index).show();
     };
     reader.readAsDataURL(input.files[0]);
@@ -80,7 +80,7 @@ function onAddMore() {
 
   var index = getIndex();
   var row =  "<tr id = 'p_media_r"+ index +"'>" +
-                "<td style = 'width: 346px;'>" +
+                "<td style = 'width: 316px;'>" +
                   "<span class='control-fileupload'>" +
                         "<input type='file' class='upload' name='userfile[]' onChange='onLoadImage(this,"+ index +");'>" +
                     "</span>" +

@@ -7,7 +7,7 @@
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview menu-open">
         <a href="<?php echo base_url()?>p-admin/dashboard>
-          <i class="fa fa-dashboard"></i> <span>Tổng Quan</span>
+          <i class="fa fa-dashboard"></i> <span>Bảng Tin</span>
         </a>
       </li>
       <li class="treeview">
@@ -19,7 +19,20 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Danh Sách</a></li>
-          <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Thêm Mới</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/add-product.html"><i class="fa fa-circle-o"></i>Thêm Mới</a></li>
+        </ul>
+      </li>
+       <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i> <span>Bài Viết</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Giới Thiệu</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/"><i class="fa fa-circle-o"></i>Tuyển Dụng</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Bài Viết Khoa Học</a></li>
         </ul>
       </li>
       <li class="treeview">

@@ -75,11 +75,11 @@
                             $row=(object)$row;
                         ?>   
                             <tr id = 'p_media_r<?php echo $index; ?>'>
-                              <td style = "width: 346px;">
+                              <td style = "width: 316px;">
                                 <span class="control-fileupload">
                                   <input type="file" class="upload" name="userfile[]" onChange="onLoadImage(this, <?php echo $index; ?>);">
                                 </span>
-                                <img class="img-thumbnail" width = "330px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> name; ?>">
+                                <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> name; ?>">
                               </td>
                               <td>
                                 <button type='button' class= "btn btn-warning pcode-btn" id ='<?php echo $index; ?>' onClick = 'onRemoveFile(this)'><i class="fa fa-close"></i></button>
