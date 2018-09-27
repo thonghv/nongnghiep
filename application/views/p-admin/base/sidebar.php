@@ -6,7 +6,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview menu-open">
-        <a href="<?php echo base_url()."p-admin"?>">
+        <a href="<?php echo base_url()?>p-admin/dashboard>
           <i class="fa fa-dashboard"></i> <span>Tổng Quan</span>
         </a>
       </li>
@@ -18,8 +18,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-          <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Danh Sách</a></li>
+          <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>Thêm Mới</a></li>
         </ul>
       </li>
       <li class="treeview">
