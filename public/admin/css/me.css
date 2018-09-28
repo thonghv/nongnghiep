@@ -1,34 +1,40 @@
 /* helper classses */
+
 .pcode-hidden {
-	display: none;
+    display: none;
 }
 
 .pcode-right {
-	margin-right: 0px;
+    margin-right: 0px;
 }
 
 .pcode-btn {
-	margin-top: 26px;
+    margin-top: 26px;
 }
 
 #p_media {
-	width: 400px;
+    width: 400px;
 }
+
 
 /* box component */
 
 .box {
-	border-color: #e6e6e6;
-	background: #FFF;
-	border-radius: 6px;
+    border-color: #e6e6e6;
+    background: #FFF;
+    border-radius: 6px;
 }
 
 .box-center {
-	margin: 20px auto;
+    margin: 20px auto;
 }
 
-.img-thumbnail{
-	margin-top: 5px;
+.img-thumbnail {
+    margin-top: 5px;
+}
+
+.inputError {
+    border-color: #dd4b39;
 }
 
 
@@ -36,31 +42,24 @@
 ----------------------------------------------- */
 
 @media only screen and (max-width: 600px) {
-	#mceu_20 {
-		width: 309px !important;
-	}
-
-	#p_media {
-		width: 271px !important;
-	}
-
-	#p_media tbody tr {
-		background-color: #fff !important;
-	}
-
-	#p_media tbody tr td {
-		width: 233px !important;
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
-
-	#p_media tbody tr td img {
-		width: 222px !important;
-	}
-
-	#p_media tbody tr td button {
-		font-size: 10px !important;
-	}
+    #mceu_20 {
+        width: 309px !important;
+    }
+    #p_media {
+        width: 271px !important;
+    }
+    #p_media tbody tr {
+        background-color: #fff !important;
+    }
+    #p_media tbody tr td {
+        width: 233px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    #p_media tbody tr td img {
+        width: 222px !important;
+    }
+    #p_media tbody tr td button {
+        font-size: 10px !important;
+    }
 }
-
-

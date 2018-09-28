@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Thêm Sản Phẩm | 
+  <title>Cập Nhập Sản Phẩm | 
     <?php
     echo $this->data->getWebTitle();
     ?>  
@@ -45,12 +45,12 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          Thêm Sản Phẩm
+          Cập Nhập Sản Phẩm
         </h1>
         <ol class="breadcrumb">
           <li><a href="<?php echo base_url()?>/p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
-          <li><a href="<?php echo base_url()?>/p-admin/add-product.html">Sản Phẩm</a></li>
-          <li class="active">Thêm Mới</li>
+          <li><a href="<?php echo base_url()?>/p-admin/product">Sản Phẩm</a></li>
+          <li class="active">Cập Nhập</li>
         </ol>
       </section>
 
@@ -64,7 +64,7 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form class="form-horizontal" enctype="multipart/form-data" id = "frm_product" action="<?php echo base_url(); ?>p-admin/addproduct/onAddProduct" method="post">
+              <form class="form-horizontal" enctype="multipart/form-data" id = "frm_product" action="<?php echo base_url(); ?>p-admin/product/onUpdate/<?php echo $info[0] -> id;?>" method="post">
                 <div class="box-body">
                   <div class="form-group">
                     <label for="nameproduct" class="col-sm-3 control-label">
@@ -72,7 +72,7 @@
                     </label>
 
                     <div class="col-sm-8">
-                      <input type=text class="form-control" id="name_product" name = "name_product" placeholder="Tên sản phẩm">
+                      <input type=text class="form-control" id="name_product" name = "name_product" placeholder="Tên sản phẩm" value = "<?php echo $info[0]->name;?>">
                     </div>
                   </div>
                   <div class="form-group">
@@ -88,7 +88,7 @@
                               foreach ($groups as $row) :
                               $row=(object)$row;
                               ?>
-                        <option value = "<?php echo($row -> id);?>"><?php echo($row -> name);?></option>
+                        <option value = "<?php echo($row -> id);?>"<?php if($row->id == $info[0] -> group_menu_id) { echo "selected";}?>><?php echo($row -> name);?></option>
                         <?php endforeach; }?>
                       </select>
                     </div>
@@ -101,6 +101,13 @@
                     <div class="col-sm-8">
                       <select class="form-control" id ="sub_menu" name = "sub_menu">
                         <option value = "">Chọn loại sản phẩm ?</option>
+                        <?php
+                              if(isset($subMenu)){
+                              foreach ($subMenu as $row) :
+                              $row=(object)$row;
+                              ?>
+                        <option value = "<?php echo($row -> id);?>"<?php if($row->id == $info[0] -> sub_menu_id) { echo "selected";}?>><?php echo($row -> name);?></option>
+                        <?php endforeach; }?>
                       </select>
                     </div>
                   </div>
@@ -110,7 +117,7 @@
                     </label>
 
                     <div class="col-sm-8">
-                      <textarea class="form-control" rows="3" id = "overview" name = "overview" placeholder="Giới thiệu tổng quan"></textarea>
+                      <textarea class="form-control" rows="3" id = "overview" name = "overview" placeholder="Giới thiệu tổng quan"><?php echo $info[0]->overview;?></textarea>
                     </div>
                   </div>
                   <div class="form-group">
@@ -119,7 +126,7 @@
                     </label>
 
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="price" name = "price" placeholder="Giá b">
+                      <input type="text" class="form-control" id="price" name = "price" placeholder="Giá bán" value = "<?php echo $info[0]->price;?>">
                     </div>
                   </div>
                   <div class="form-group">
@@ -138,9 +145,9 @@
                           <table class="table table-hover" id = "p_media">
                             <tbody>
                               <?php
-                              if(isset($slides)){
+                              if(isset($imgs)){
                               $index = 0;
-                              foreach ($slides as $row) :
+                              foreach ($imgs as $row) :
                               $row=(object)$row;
                               ?>   
                               <tr id = 'p_media_r<?php echo $index; ?>'>
@@ -148,7 +155,7 @@
                                   <span class="control-fileupload">
                                     <input type="file" class="upload" name="userfile[]" onChange="onLoadImage(this, <?php echo $index; ?>);">
                                   </span>
-                                  <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> name; ?>">
+                                  <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> img_name; ?>">
                                 </td>
                                 <td>
                                   <button type='button' class= "btn btn-warning pcode-btn" id ='<?php echo $index; ?>' onClick = 'onRemoveFile(this)'><i class="fa fa-close"></i></button>
@@ -170,7 +177,7 @@
 
                     <div class="col-sm-8">
                       <?php echo $editor; ?>
-                      <textarea class="form-control" id="content"  name="content"></textarea>  
+                      <textarea class="form-control" id="content"  name="content"><?php echo $info[0]->content;?></textarea>  
                     </div>
                   </div>
 

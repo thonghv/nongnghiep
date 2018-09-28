@@ -16,7 +16,7 @@ class Ajax extends CI_Controller{
 
 		?>
 		 <select class="form-control" id ="sub_menu" name = "sub_menu">
-			<option selected >Chọn loại sản phẩm ?</option>
+			<option value = "" selected >Chọn loại sản phẩm ?</option>
 			<?php
 
 			if($query->num_rows()!=0)

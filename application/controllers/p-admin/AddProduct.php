@@ -6,6 +6,7 @@ class AddProduct extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->library('session');
+        $this->load->helper('utils');	
     }
 
     public function index()
@@ -26,6 +27,64 @@ class AddProduct extends CI_Controller {
 		$this->load->view('p-admin/AddProduct', $data);
 	}
 
+    /**
+     * On add product
+     */
+    public function onAddProduct(){
+
+        $nameProduct = $this->input->post("name_product");
+        $slug = url_title(strtolower(getSlug($nameProduct)));
+
+		$data = array(
+            "name" => $nameProduct,	
+            "slug" => $slug,
+            "group_menu_id" => $this->input->post("group_menu"),
+            "sub_menu_id" => $this->input->post("sub_menu"),
+            "price" => $this->input->post("price"),
+            "overview" => $this->input->post("overview"),
+            "content" => $this->input->post("content"),
+        );
+
+        $this->load->Model('MAdmin');
+        $productId = $this->MAdmin->addProduct($data);
+
+        // updload product image
+        $this->onAddImage($productId);
+
+        $this->session->unset_userdata('ok');
+
+        redirect(base_url()."p-admin/product");
+        
+    }
+
+    public function onAddImage($productId){ 
+
+        $this->load->model('MAdmin');
+        
+		$dataInfo = array();
+		$files = $_FILES;
+        $cpt = count($_FILES['userfile']['name']);
+
+		for($i=0; $i<$cpt; $i++)
+		{           
+			$_FILES['userfile']['name']= $files['userfile']['name'][$i];
+			$_FILES['userfile']['type']= $files['userfile']['type'][$i];
+			$_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
+			$_FILES['userfile']['error']= $files['userfile']['error'][$i];
+			$_FILES['userfile']['size']= $files['userfile']['size'][$i];    
+
+			$data = array( 
+                'product_id' => $productId,
+				'img_name' => $_FILES["userfile"]["name"],
+			);
+
+			$this->MAdmin->addProductImg($data);   
+
+			/*upload hinh anh*/
+			$this->MAdmin->do_upload("userfile");
+		}
+	}
+
 	public function tinymce()
     {
         $this->load->helper('url');
@@ -33,10 +92,9 @@ class AddProduct extends CI_Controller {
             <script type="text/javascript" src="'.  base_url().'tinymce/tinymce.min.js"></script>
             <script>
             tinymce.init({
-                selector: "#detail" ,
+                selector: "#content" ,
                 theme: "modern",
                 height: 500,
-                width: 700,
                 relative_urls : false,
                 remove_script_host: false,
                 plugins: [

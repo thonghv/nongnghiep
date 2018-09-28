@@ -65,30 +65,48 @@
                                         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                             <thead>
                                                 <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 164px;">Rendering engine</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 203px;">Browser</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 180px;">Platform(s)</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 140px;">Engine version</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 100px;">CSS grade</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID" style="width: 30px;">ID</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Tên Sản Phẩm" style="width: 300px;">Tên Sản Phẩm</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Danh Mục Sản Phẩm" style="width: 140px;">Danh Mục Sản Phẩm</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Loại Sản Phẩm" style="width: 140px;">Loại Sản Phẩm</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Tùy Chọn" style="width: 100px;">Tùy Chọn</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php
+                                                if($products != null){
+                                                    foreach ($products as $row) :
+                                                    $row=(object)$row;
+                                            ?>   
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">Gecko</td>
-                                                    <td>Firefox 1.0</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.7</td>
-                                                    <td>A</td>
+                                                    <td class="sorting_1"><?php echo $row -> id; ?></td>
+                                                    <td><?php echo $row -> product_name; ?></td>
+                                                    <td>
+                                                        <span class="label label-success">
+                                                            <?php echo $row -> group_name; ?>
+                                                        </span>
+                                                    </td>
+                                                    <td><span class="label label-primary">
+                                                            <?php echo $row -> menu_name; ?>
+                                                        </span>
+                                                    </td>
+                                                    <td> 
+                                                        <button type="button" class="btn btn-xs btn-flat btn-info" data-toggle="modal" data-target="#modal-info-<?php echo $row->id;?>">Chi Tiết</button>
+                                                        <a href ="<?php echo base_url(); ?>p-admin/product/update/<?php echo $row->id;?>">
+                                                            <button type="button" class="btn btn-xs btn-flat btn-warning">&nbsp;Sửa&nbsp;</button>
+                                                        </a>
+                                                        <button type="button" class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#modal-remove-<?php echo $row->id;?>">&nbsp;Xóa&nbsp;</button>
+                                                    </td>
                                                 </tr>
-
+                                            <?php endforeach; }?>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th rowspan="1" colspan="1">Rendering engine</th>
-                                                    <th rowspan="1" colspan="1">Browser</th>
-                                                    <th rowspan="1" colspan="1">Platform(s)</th>
-                                                    <th rowspan="1" colspan="1">Engine version</th>
-                                                    <th rowspan="1" colspan="1">CSS grade</th>
+                                                    <th rowspan="1" colspan="1">ID</th>
+                                                    <th rowspan="1" colspan="1">Tên Sản Phẩm</th>
+                                                    <th rowspan="1" colspan="1">Danh Mục Sản Phẩm</th>
+                                                    <th rowspan="1" colspan="1">Loại Sản Phẩm</th>
+                                                    <th rowspan="1" colspan="1">Tùy Chọn</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -98,6 +116,118 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
+
+                    <!-- START modal-dialog -->
+                    <?php
+                                if($products != null){
+                                        foreach ($products as $row) :
+                                        $row=(object)$row;
+                                ?>   
+                                <div class="modal fade" id="modal-info-<?php echo $row->id;?>" style="display: none;">
+                                    <form class="form-horizontal" id = "frm_up_group_menu" action="<?php echo base_url(); ?>p-admin/menus/onUpdateGroup?group_id=<?php echo $row->id;?>" method="post">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
+                                                <h4 class="modal-title">Thông Tin Sản Phẩm</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                <table class="table table-striped table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="col-md-2">Sản Phẩm</th>
+                                                            <th><?php echo $row->product_name; ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Danh Mục</td>
+                                                            <td>
+                                                                <span class="label label-success">
+                                                                    <?php echo $row -> group_name; ?>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Loại Sản Phẩm</td>
+                                                            <td>
+                                                                <span class="label label-primary">
+                                                                    <?php echo $row -> menu_name; ?>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Giá</td>
+                                                            <td>
+                                                                <?php echo $row -> price; ?> VND
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hình Ảnh</td>
+                                                            <td>
+                                                                <?php
+                                                                if($imgs != null){
+                                                                        foreach ($imgs as $imgr) :
+                                                                        $imgr=(object)$imgr;
+                                                                        if($imgr->product_id == $row->id) {
+                                                                ?> 
+                                                                <img src="<?php echo base_url()?>public/img-slide/<?php echo $imgr -> img_name; ?>" class="img-thumbnail" width = "100px;" alt="<?php echo $row -> product_name; ?>"> 
+                                                                <?php } endforeach; }?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Giới Thiệu</td>
+                                                            <td>
+                                                                <?php echo $row -> overview; ?>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                            <td>Chi Tiết</td>
+                                                            <td>
+                                                                <?php echo $row -> content; ?>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy Bỏ</button>
+                                            </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal modal-warning fade" id="modal-remove-<?php echo $row->id;?>" style="displa
+                                y: none;">
+                                    <form class="form-horizontal" id = "frm_up_group_menu" action="<?php echo base_url(); ?>p-admin/product/onRemove/<?php echo $row->id;?>" method="post">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span></button>
+                                                <h4 class="modal-title">Bạn có chắc muốn xóa sản phẩm này hay không ?</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2><p><?php echo $row->product_name;?></p></h2>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline" data-dismiss="modal">Hủy Bỏ</button>
+                                                <button type="submit" class="btn btn-outline">Xóa</button>
+                                            </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                    </form>
+                                </div>
+                                <?php endforeach; }?>
+                                <!-- /.modal-dialog -->
                     <!-- /.box -->
                 </div>
             <!-- /.col -->

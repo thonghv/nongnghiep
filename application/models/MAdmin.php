@@ -75,8 +75,10 @@ class MAdmin extends CI_Model {
         return $this->db->insert_id();
     }
 
-    /** =====================================================
-    /** Start Slide
+    /** 
+    *=====================================================
+    *  Start Slide
+    */
 
     /* Get all slide */
     public function getSlide() {
@@ -101,7 +103,8 @@ class MAdmin extends CI_Model {
     }
 
     /** ENd Slide
-    /** =====================================================
+    * =====================================================
+    */
 
     /**
     * Update image slider
@@ -140,4 +143,79 @@ class MAdmin extends CI_Model {
         }
 
     }
+
+     /** 
+    *=====================================================
+    *  Products
+    */
+
+    /* Get all product */
+    public function getProducts() {
+        $query=$this->db->query('SELECT p.id,p.name as product_name, p.slug, g.name as group_name, s.name as menu_name, p.overview, p.price, p.content FROM p_product p '.
+        'JOIN p_group_menu g on p.group_menu_id = g.id JOIN p_sub_menu s on p.sub_menu_id = s.id');
+        return $query->result();
+    }
+
+    /* Get product by ID */
+    public function getProductById($id) {
+        $query=$this->db->query('SELECT *FROM p_product WHERE id='.$id);
+        return $query->result();
+    }
+
+    /**
+     * Insert product
+     */
+    public function addProduct($data) {
+        $this->db->insert("p_product", $data);
+        return $this->db->insert_id();
+    }
+
+    /**
+     * Update product
+     */
+    public function updateProduct($data) {
+        $this->db->where('id', $masp); 
+        $this->db->update("p_product", $data);  
+    }
+
+    /**
+     * Delete product
+     */
+    public function removeProduct($id) {
+        $this->db->where("id", $id);
+        $this->db->delete("p_product");
+    }
+
+    /* Get all product image */
+    public function getAllProductsImg() {
+        $query=$this->db->query('SELECT *FROM p_product_img');
+        return $query->result();
+    }
+
+    /* Get product image by ID */
+    public function getProductsImgById($producId) {
+        $query=$this->db->query('SELECT *FROM p_product_img WHERE product_id ='.$producId);
+        return $query->result();
+    }
+
+    /**
+     * Insert product image 
+     */
+    public function addProductImg($data) {
+        $this->db->insert("p_product_img", $data);
+        return $this->db->insert_id();
+    }
+
+     /**
+     * Delete product image
+     */
+    public function removeProductImg($id) {
+        $this->db->where("product_id", $id);
+        $this->db->delete("p_product_img");
+    }
+
+    /** End Product
+    * =====================================================
+    */
+
 }
