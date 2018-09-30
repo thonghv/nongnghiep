@@ -55,92 +55,104 @@
       <section class="content">
         <div class="row">
           <div class="col-md-12">
-          <!-- Horizontal Form -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title"></h3>
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+              <div class="box-header with-border">
+                <!-- /.Alert success -->
+                <?php
+                if(!isset( $_SESSION )) 
+                { 
+                  session_start (); 
+                } 
+                if($this->session->userdata('ok')!=NULL)
+                  {?>   
+                    <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <i class="icon fa fa-check"></i> Cập nhập dữ liệu thành công!
+                    </div>
+                  <?php } ?>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" enctype="multipart/form-data" action="<?php echo base_url(); ?>p-admin/OptionsGeneral/onSetting" method="post">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="web_title" class="col-sm-3 control-label">
+                        Tiêu đề trang
+                      </label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="web_title" name="web_title" placeholder="Tiêu đề trang" value = "<?php echo($infoTitle);?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="company" class="col-sm-3 control-label">
+                        Công Ty
+                      </label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="company" name="company" placeholder="Công ty" value = "<?php echo($infoDesc);?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="about" class="col-sm-3 control-label">
+                        Tổng quan về trang
+                      </label>
+
+                      <div class="col-sm-8">
+                        <textarea class="form-control" rows="3" id="about" name="about" placeholder="Giới thiệu tổng quan"><?php echo($infoAbout) ?></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="col-sm-3 control-label">
+                        Địa chỉ thư điện tử
+                      </label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Địa chỉ thư điện tử" value="<?php echo($infoAdmin) ?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="language" class="col-sm-3 control-label">
+                        Ngôn ngữ trang
+                      </label>
+
+                      <div class="col-sm-8">
+                        <select class="form-control">
+                          <option>Tiếng Việt</option>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Lưu Thay Đổi</button>
+                  </div>
+                  <!-- /.box-footer -->
+                </form>
+              </div>
+              <!-- /.box -->
+              <!-- general form elements disabled -->
+
+              <!-- /.box -->
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">
-                    Tiêu đề trang
-                  </label>
-
-                  <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Tiêu đề trang">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">
-                    Khẩu hiệu
-                  </label>
-
-                  <div class="col-sm-8">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Khẩu hiệu">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">
-                    Tổng quan về trang
-                  </label>
-
-                  <div class="col-sm-8">
-                    <textarea class="form-control" rows="3" placeholder="Giới thiệu tổng quan"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">
-                    Địa chỉ thư điện tử
-                  </label>
-
-                  <div class="col-sm-8">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Địa chỉ thư điện tử">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-3 control-label">
-                    Ngôn ngữ trang
-                  </label>
-
-                  <div class="col-sm-8">
-                    <select class="form-control">
-                      <option>Tiếng Việt</option>
-                    </select>
-                  </div>
-                </div>
-                
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right">Lưu thay đổi</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>
           </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-
-          <!-- /.box -->
-        </div>
-        </div>
-      </section>
-    </div>
-    <!-- /.content-wrapper -->
-
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.0
+        </section>
       </div>
-      <strong>Copyright &copy; 2018 <a href="">PCode Team</a>.</strong> All rights
-      reserved.
-    </footer>
+      <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <?php $this->load->view("p-admin/base/config.php");?>
-    <!-- /.control-sidebar -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2018 <a href="">PCode Team</a>.</strong> All rights
+        reserved.
+      </footer>
+
+      <!-- Control Sidebar -->
+      <?php $this->load->view("p-admin/base/config.php");?>
+      <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
@@ -167,6 +179,7 @@
  <script src="<?php echo base_url()?>public/admin/js/Chart.js"></script>
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="<?php echo base_url()?>public/admin/js/dashboard2.js"></script>
- <!-- AdminLTE for demo purposes -->
+
+<?php $this->session->unset_userdata('ok'); ?>
 </body>
 </html>

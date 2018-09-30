@@ -46,7 +46,7 @@
           Sản Phẩm
         </h1>
         <ol class="breadcrumb">
-          <li><a href="<?php echo base_url()?>/p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
           <li><a href="">Sản Phẩm</a></li>
           <li class="active">Danh Sách</li>
         </ol>
@@ -143,7 +143,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>Danh Mục</td>
+                                                            <td><strong>Danh Mục</strong></td>
                                                             <td>
                                                                 <span class="label label-success">
                                                                     <?php echo $row -> group_name; ?>
@@ -151,7 +151,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Loại Sản Phẩm</td>
+                                                            <td><strong>Loại Sản Phẩm</strong></td>
                                                             <td>
                                                                 <span class="label label-primary">
                                                                     <?php echo $row -> menu_name; ?>
@@ -159,13 +159,13 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Giá</td>
+                                                            <td><strong>Giá</strong></td>
                                                             <td>
                                                                 <?php echo $row -> price; ?> VND
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Hình Ảnh</td>
+                                                            <td><strong>Hình Ảnh</strong></td>
                                                             <td>
                                                                 <?php
                                                                 if($imgs != null){
@@ -178,14 +178,14 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Giới Thiệu</td>
+                                                            <td><strong>Giới Thiệu</strong></td>
                                                             <td>
                                                                 <?php echo $row -> overview; ?>
                                                             </td>
                                                         </tr>
                                                         
                                                         <tr>
-                                                            <td>Chi Tiết</td>
+                                                            <td><strong>Chi Tiết</strong></td>
                                                             <td>
                                                                 <?php echo $row -> content; ?>
                                                             </td>

@@ -87,10 +87,23 @@
 
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-plus-circle"></i> Tạo Mới</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="group_name" class="col-sm-2 control-label" style = "width:10%">Hiển Thị</label>
+
+                                        <div class="col-sm-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="show_home">
+                                                    (Hiển thị sản phẩm của danh mục trên trang chủ)
+                                                </label>
+                                            </div>
                                         </div>
 
                                     </div>
-                                </form>
+                                    
+                                </div>
+                            </form>
                             </div>
                             <div class="box">
                                 <div class="box-header">
@@ -161,13 +174,20 @@
                                             <div class="modal-body">
                                                 
                                                 <div class="form-group">
-                                                            <label for="group_name" class="col-sm-2 control-label pcode-right"><strong>Danh Mục</strong></label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" id="up_group_name" name = "up_group_name" placeholder="Tên danh mục" 
-                                                                value = "<?php echo $row -> name; ?>">
-                                                            </div>
-                                                        </div>
-                                                
+                                                    <label for="group_name" class="col-sm-2 control-label pcode-right"><strong>Danh Mục</strong></label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="up_group_name" name = "up_group_name" placeholder="Tên danh mục" 
+                                                        value = "<?php echo $row -> name; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="group_name" class="col-sm-2 control-label pcode-right"><strong>Hiển Thị</strong></label>
+                                                    <div class="col-sm-8">
+                                                        <input type="checkbox" value="1" name ="is_show" <?php if($row->is_show == 1) {
+                                                        echo "checked"; }?> >
+                                                        (Hiển thị sản phẩm của danh mục trên trang chủ)
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Hủy Bỏ</button>
@@ -180,8 +200,7 @@
                                 </div>
                                 
 
-                                <div class="modal modal-warning fade" id="modal-remove-<?php echo $row->id;?>" style="displa
-                                y: none;">
+                                <div class="modal modal-warning fade" id="modal-remove-<?php echo $row->id;?>" style="display: none;">
                                     <form class="form-horizontal" id = "frm_up_group_menu" action="<?php echo base_url(); ?>p-admin/menus/onRemoveGroup/<?php echo $row->id;?>" method="post">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

@@ -115,6 +115,13 @@ function onAddFile(input) {
 
 function onRemoveFile(input) {
     $('#p_media_r' + input.id).remove();
+
+    var index = 0;
+    $('#p_media > tbody  > tr > td.pcode-col').each(function() {
+        $(this).find("input:text").attr('name', 'input_img_' + index);
+        index ++;
+        //$('<input></input>').attr({'type': 'text', 'name' : 'abc', 'value' : 'thong ngủ'}).val("").appendTo($(this));
+    });
 };
 
 function getIndex() {

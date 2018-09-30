@@ -29,6 +29,7 @@ class Menus extends CI_Controller {
             $isOldData = true;
             $tabActive = $this->session->userdata('menu_tab_active');
             $groupId = $this->session->userdata('group_menu_id');
+
             $subMenuFilter = $this->MAdmin->getGroupSubMenuById($groupId);
             $menuInfo = $this->MAdmin->getGroupsMenuById($groupId);
         }
@@ -54,10 +55,17 @@ class Menus extends CI_Controller {
     public function onAddGroup(){
         $groupName = $this->input->post("group_name");
 
+        $is_show = 0;
+        $checked = $this->input->post('show_home');
+        if((int) $checked == 1){
+            $is_show = 1;
+        }
+
         $slug = url_title(strtolower(getSlug($groupName)));
 		$data = array(
-            "name" => $groupName,	
-            "slug" => $slug,
+            "name"      =>   $groupName,	
+            "slug"      =>   $slug,
+            "is_show"   =>   $is_show,
         );
 
         $this->load->Model('MAdmin');
@@ -84,10 +92,17 @@ class Menus extends CI_Controller {
 		$data = array(
             "name" => $groupName,	
             "slug" => $slug,
+            "is_show" => $this->input->post("is_show"),
         );
 
         $this->load->Model('MAdmin');
         $this->MAdmin->updateGroupMenu($id, $data);
+
+        if($this->session->userdata('menu_tab_active') != NULL)
+        {
+            $this->session->unset_userdata('menu_tab_active');
+            $this->session->unset_userdata('group_menu_id');
+        }
 
         redirect(base_url()."p-admin/menus");
     }
@@ -109,13 +124,16 @@ class Menus extends CI_Controller {
     public function onFilterGroup(){
 
         $groupId = $this->input->post("lst-group-menu");
+        if($groupId == null) {
+             $groupId = 0;
+        }
 
         $this->load->Model('MAdmin');
         $groups = $this->MAdmin->getGroupsMenu();
         $subMenu = $this->MAdmin->getGroupSubMenu();
         $subMenuFilter = $this->MAdmin->getGroupSubMenuById($groupId);
 
-        $menuInfo = $this->MAdmin->getGroupsMenuById($groupId);
+        
 
         $tabActive = 'SUB_MENU_ACTIVE';
 		$data = array(
@@ -125,8 +143,12 @@ class Menus extends CI_Controller {
             'tabActive' => $tabActive,
 
             'groupId' => $groupId,
-            'groupName' => $menuInfo[0] -> name,
         );
+
+        $menuInfo = $this->MAdmin->getGroupsMenuById($groupId);
+        if(count($menuInfo) > 0) {
+            $data['groupName'] = $menuInfo[0] -> name;
+        }
 
         $this->load->view('p-admin/Menus', $data);
     }

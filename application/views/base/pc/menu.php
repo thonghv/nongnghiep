@@ -5,24 +5,24 @@
             <li class=""><a class="" href=""><span>Giới thiệu</span></a></li>
             <li class=" "><a class="" href=""><span>Sản phẩm</span></a>
                 <ul class="dl-submenu  ">
-                    <li><a href="">» Nhóm trái cây</a>
+                    <?php
+                    if($this->data->getGroupsMenu() != null){
+                    foreach ($this->data->getGroupsMenu() as $groups) :
+                        $groups=(object)$groups;
+                    ?>   
+                    <li><a href="">» <?php echo $groups->name; ?></a>
                         <ul class="dl-submenu  ">
-                            <li><a href="">» Nhóm trái cây</a></li>
-                            <li><a href="">» Nhóm củ, quả</a></li>
-                            <li><a href="">» Nhóm cải bắp, rau lá</a></li>
-                            <li><a href="">» Nhóm rau tạo mùi</a></li>
+                            <?php
+                            if($this->data->getSubsMenu() != null){
+                            foreach ($this->data->getSubsMenu() as $sub) :
+                                $sub=(object)$sub;
+                                if($sub -> group_id  == $groups -> id) {
+                            ?>   
+                            <li><a href="">» <?php echo $sub -> name; ?></a></li>
+                            <?php } endforeach; }?>
                         </ul>
                     </li>
-                    <li><a href="">» Nhóm củ, quả</a>
-                        <ul class="dl-submenu  ">
-                            <li><a href="">» Nhóm trái cây</a></li>
-                            <li><a href="">» Nhóm củ, quả</a></li>
-                            <li><a href="">» Nhóm cải bắp, rau lá</a></li>
-                            <li><a href="">» Nhóm rau tạo mùi</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="">» Nhóm cải bắp, rau lá</a></li>
-                    <li><a href="">» Nhóm rau tạo mùi</a></li>
+                    <?php endforeach; }?>
                 </ul>
             </li>
             <li class=""><a class="" href=""><span>Bài Viết Khoa Học</span></a></li>

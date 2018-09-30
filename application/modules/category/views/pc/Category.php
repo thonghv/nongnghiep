@@ -85,12 +85,17 @@
 	}  
 	.left:hover, .right:hover {  
 		background-color: rgb(179, 173, 173) !important;
-	}  
+	} 
+	.img-responsive {
+	    width: 223px;
+	    height: 223px;
+	}
 </style>
 </head>
 <body>
 	<div class="head_top header_admin">
-		<div class="bg_top"><script>
+		<div class="bg_top">
+			<script>
 			function jsupdate(k,idclass,jscolor) {
 				if(k==0) 		$("."+idclass).css("background-color","#"+jscolor);
 				else if (k==1)	$("."+idclass).css("color","#"+jscolor);
@@ -106,19 +111,23 @@
 	</div>
 	<div class="template_id">
 		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
-			<?php echo $this->data->getCompanyName(); ?> &nbsp;(Điện Thoại : 090.909.0127)
+			<?php echo $this->data->getWebName(); ?> &nbsp;(Điện Thoại : 090.909.0127)
 		</a>
 	</div>
 
 </div>
 <div class="header bg_header" id="home" style = "margin-top: 55px; min-height: 380px;">
 	<div class="slidercontainer">  
+
+            <?php
+                if($this->data->getSlides() != null){
+                foreach ($this->data->getSlides() as $rows) :
+                    $rows=(object)$rows;
+            ?>   
             <div class="showSlide">  
-                <img height="390px" width="" src="<?php echo base_url()?>public/img/banner.jpg" />  
+                <img height="390px" width="" src="<?php echo base_url()?>public/img-slide/<?php echo $rows->name; ?>" />  
             </div>
-            <div class="showSlide">  
-                <img height="390px" src="http://files.vforum.vn/2015/T10/img/vforum.vn-233771-natural-landscape-16.jpg" />  
-            </div>  
+            <?php endforeach; }?>
             <a class="left" onclick="nextSlide(-1)">&#10094;</a>  
             <a class="right" onclick="nextSlide(1)">&#10095;</a>  
         </div>
@@ -165,133 +174,36 @@
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12 col-min-12 dv-ndung-sptt nobostrap" >
 						<div class="service-grids">
+							<?php
+				                if(isset($products)){
+				                foreach ($products as $rows) :
+				                    $rows=(object)$rows;
+				            ?>   
 							<div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 0>
 								<div class=' arrival-grid simpleCart_shelfItem wow bounceInLeft animated glo-trang-thai-sp glo-trang-thai-sp-2668107 data='2668107' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
 									<div class='grid-arr'>
 										<div  class='grid-arrival'>
 											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/kiwi' class='new-gri' >
+												<a href='' class='new-gri' >
 													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/trái cây/J14SZ84.jpg' class='img-responsive' alt=''>
+														<img  src='<?php echo base_url()?>public/img-slide/<?php echo($rows -> img_name); ?>' class='img-responsive' alt=''>
 													</div>		
 												</a>		
 											</figure>	
 										</div>
 										<div class='women'>
 											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/kiwi'>Kiwi</a></h6>
-												<span class=' gia_km'>263,000 VNĐ</span>
-												<span class='item_price gia_ban'>241,000 VNĐ</span>
+												<h6 style = "margin-bottom: 0px"><a href=''><?php echo $rows -> name; ?></a></h6>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 0>
-								<div class=' arrival-grid simpleCart_shelfItem wow fadeInUpBig animated glo-trang-thai-sp glo-trang-thai-sp-2668106 data='2668106' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-									<div class='grid-arr'>
-										<div  class='grid-arrival'>
-											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/cherry-nhap-khau-my' class='new-gri' >
-													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/trái cây/cherries2.jpg' class='img-responsive' alt=''>
-													</div>		
-												</a>		
-											</figure>	
-										</div>
-										<div class='women'>
-											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/cherry-nhap-khau-my'>Cherry nhập khẩu mỹ</a></h6>
-												<span class='hide gia_km'></span>
-												<span class='item_price gia_ban'>990,000 VNĐ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 0>
-								<div class=' arrival-grid simpleCart_shelfItem wow bounceInRight animated glo-trang-thai-sp glo-trang-thai-sp-2668105 data='2668105' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-									<div class='grid-arr'>
-										<div  class='grid-arrival'>
-											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/dua-hau' class='new-gri' >
-													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/trái cây/dưa hấu hắc mỹ nhân.JPG' class='img-responsive' alt=''>
-													</div>		
-												</a>		
-											</figure>	
-										</div>
-										<div class='women'>
-											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/dua-hau'>Dưa hấu</a></h6>
-												<span class=' gia_km'>20,000 VNĐ</span>
-												<span class='item_price gia_ban'>15,000 VNĐ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 4>
-								<div class=' arrival-grid simpleCart_shelfItem wow bounceInLeft animated glo-trang-thai-sp glo-trang-thai-sp-2368961 data='2368961' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-									<div class='grid-arr'>
-										<div  class='grid-arrival'>
-											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920' class='new-gri' >
-													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750443998850_chanh-day.jpg' class='img-responsive' alt=''>
-													</div>		
-												</a>		
-											</figure>	
-										</div>
-										<div class='women'>
-											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'>Chanh giây</a></h6>
-												<span class=' gia_km'>55,000 VNĐ</span>
-												<span class='item_price gia_ban'>25,000 VNĐ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 4>
-								<div class=' arrival-grid simpleCart_shelfItem wow fadeInDownBig animated glo-trang-thai-sp glo-trang-thai-sp-2368949 data='2368949' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-									<div class='grid-arr'>
-										<div  class='grid-arrival'>
-											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917' class='new-gri' >
-													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374884347_chuoi-ngu.jpg' class='img-responsive' alt=''>
-													</div>		
-												</a>		
-											</figure>	
-										</div>
-										<div class='women'>
-											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917'>Chuối laba</a></h6>
-												<span class='hide gia_km'></span>
-												<span class='item_price gia_ban'>16,000 VNĐ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 4>
-								<div class=' arrival-grid simpleCart_shelfItem wow bounceInRight animated glo-trang-thai-sp glo-trang-thai-sp-2368948 data='2368948' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-									<div class='grid-arr'>
-										<div  class='grid-arrival'>
-											<figure>		
-												<a href='http://demonongnghiep.web30s.vn/Bo-sap-336916' class='new-gri' >
-													<div class='grid-img'>
-														<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374024529_bo-sap-daklak-8.jpg' class='img-responsive' alt=''>
-													</div>		
-												</a>		
-											</figure>	
-										</div>
-										<div class='women'>
-											<div class='gr_price'>
-												<h6><a href='http://demonongnghiep.web30s.vn/Bo-sap-336916'>Bơ sáp</a></h6>
-												<span class='hide gia_km'></span>
-												<span class='item_price gia_ban'>26,000 VNĐ</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class='page_break page_break_cus1'></div>				<div class="clear"></div>
+							</div>
+							 <?php endforeach; }?>
+							<div class='page_break page_break_cus1'>
+								<div class="paging"><?php echo $paginator; ?></div>  
+							</div>				
+							<div class="clear"></div>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-4 col-xs-12 col-min-12 single-page-right">

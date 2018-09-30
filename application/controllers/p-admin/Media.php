@@ -32,6 +32,9 @@ class Media extends CI_Controller {
 		$dataInfo = array();
 		$files = $_FILES;
 		$cpt = count($_FILES['userfile']['name']);
+		//print($cpt);
+		//return;
+
 		for($i=0; $i<$cpt; $i++)
 		{           
 			$_FILES['userfile']['name']= $files['userfile']['name'][$i];
@@ -40,17 +43,33 @@ class Media extends CI_Controller {
 			$_FILES['userfile']['error']= $files['userfile']['error'][$i];
 			$_FILES['userfile']['size']= $files['userfile']['size'][$i];    
 
-			$data = array( 
-				'name' => $_FILES["userfile"]["name"],
-			);
+			if($files['userfile']['name'][$i] != null && !empty($files['userfile']['name'][$i])){  
+				$data = array( 
+					'name' => $_FILES["userfile"]["name"],
+				);
 
-			$this->MAdmin->addSlide($data);   
+				$this->MAdmin->addSlide($data);   
 
-			/*upload hinh anh*/
-			$this->MAdmin->do_upload("userfile");
+				/*upload hinh anh*/
+				$this->MAdmin->do_upload("userfile");
+			} else {
+				$nameImg = $this->input->post("input_img_".$i);
+					if($nameImg != null) {
+					$data = array( 
+						'name' => $nameImg,
+					);
+
+					$this->MAdmin->addSlide($data);
+				}
+			}
 			
 		}
 
-		 redirect(base_url()."p-admin/media");
+		$data_session = array(
+			"ok" => 'ok',			
+		);
+		$this->session->set_userdata($data_session);
+
+		redirect(base_url()."p-admin/media");
 	}
 }

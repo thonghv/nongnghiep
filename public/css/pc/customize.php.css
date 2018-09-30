@@ -1851,7 +1851,8 @@ a.b-home:hover{
 }
 .simpleCart_shelfItem{
     border:1px dashed rgba(22, 166, 103, 0.42);
-    padding:15px 15px 20px;
+    /* padding:15px 15px 20px; */
+    padding:15px 15px 0px;
     margin-bottom:25px
 }
 .simpleCart_shelfItem:hover{
@@ -1894,14 +1895,16 @@ a.b-home:hover{
     font-size:14px;
     margin:10px 0 4px;
     display:block;
-    text-overflow:ellipsis;
-    white-space:nowrap;
+    /* text-overflow:ellipsis;
+    white-space:nowrap; */
     overflow:hidden;
     text-align:left;
     color:#fff;
     padding:10px 0;
     text-transform:capitalize;
-    font-weight:600
+    font-weight:600;
+    line-height: 1.5;
+    min-height: 62px;
 }
 .simpleCart_shelfItem .women .sp_ghichu{
     font-size:13px;

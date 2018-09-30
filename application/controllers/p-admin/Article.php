@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AddProduct extends CI_Controller {
+class Article extends CI_Controller {
 
 	public function __construct(){
         parent::__construct();
         $this->load->library('session');
-        $this->load->helper('utils');	
+        $this->load->helper('utils');   
     }
 
     public function index()
@@ -15,83 +15,44 @@ class AddProduct extends CI_Controller {
         {
 			redirect(base_url()."p-admin/login");
         }
-        
-        $this->load->Model('MAdmin');
-        $groups = $this->MAdmin->getGroupsMenu();
+		
+		// ARTICLE_ABOUT_TYPE
+		$ARTICLE_ABOUT_TYPE = 1;
 
 		$data = array(
-			'groups' => $groups,
-			'editor' => $this->tinymce(),
+			'editor'  => $this->tinymce(),
 		);
 
-		$this->load->view('p-admin/AddProduct', $data);
+		$this->load->Model('MAdmin');
+		$content = $this->MAdmin->getArticleById($ARTICLE_ABOUT_TYPE);
+		if(count($content) > 0) {
+			$data['content'] = $content[0] -> content;
+		}
+		
+		$this->load->view('p-admin/Article', $data);
 	}
 
-    /**
-     * On add product
+	/**
+     * On update 
      */
-    public function onAddProduct(){
+    public function onUpdate(){
 
-        $nameProduct = $this->input->post("name_product");
-        $slug = url_title(strtolower(getSlug($nameProduct)));
-
-        $is_show = 0;
-        $checked = $this->input->post('is_show');
-        if((int) $checked == 1){
-            $is_show = 1;
-        }
-        
 		$data = array(
-            "name" => $nameProduct,	
-            "slug" => $slug,
-            "group_menu_id" => $this->input->post("group_menu"),
-            "sub_menu_id" => $this->input->post("sub_menu"),
-            "price" => $this->input->post("price"),
-            "is_show" => $is_show,
-            "overview" => $this->input->post("overview"),
             "content" => $this->input->post("content"),
         );
 
         $this->load->Model('MAdmin');
-        $productId = $this->MAdmin->addProduct($data);
-
-        // updload product image
-        $this->onAddImage($productId);
+        $productId = $this->MAdmin->updateArticle(1, $data);
 
         $this->session->unset_userdata('ok');
 
-        redirect(base_url()."p-admin/product");
+        redirect(base_url()."p-admin/article");
         
     }
 
-    public function onAddImage($productId){ 
-
-        $this->load->model('MAdmin');
-        
-		$dataInfo = array();
-		$files = $_FILES;
-        $cpt = count($_FILES['userfile']['name']);
-
-		for($i=0; $i<$cpt; $i++)
-		{           
-			$_FILES['userfile']['name']= $files['userfile']['name'][$i];
-			$_FILES['userfile']['type']= $files['userfile']['type'][$i];
-			$_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-			$_FILES['userfile']['error']= $files['userfile']['error'][$i];
-			$_FILES['userfile']['size']= $files['userfile']['size'][$i];    
-
-			$data = array( 
-                'product_id' => $productId,
-				'img_name' => $_FILES["userfile"]["name"],
-			);
-
-			$this->MAdmin->addProductImg($data);   
-
-			/*upload hinh anh*/
-			$this->MAdmin->do_upload("userfile");
-		}
-	}
-
+	/**
+	* CK Editor
+	*/
 	public function tinymce()
     {
         $this->load->helper('url');

@@ -6,6 +6,7 @@ class Product extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->library('session');
+        $this->load->helper('utils');   
     }
 
     public function index()
@@ -67,12 +68,13 @@ class Product extends CI_Controller {
             "group_menu_id" => $this->input->post("group_menu"),
             "sub_menu_id" => $this->input->post("sub_menu"),
             "price" => $this->input->post("price"),
+            "is_show" => $this->input->post("is_show"),
             "overview" => $this->input->post("overview"),
             "content" => $this->input->post("content"),
         );
 
         $this->load->Model('MAdmin');
-        $productId = $this->MAdmin->addProduct($data);
+        $this->MAdmin->updateProduct($productId, $data);
 
         // updload product image
         $this->onAddImage($productId);
@@ -89,7 +91,8 @@ class Product extends CI_Controller {
     public function onAddImage($productId){ 
 
         $this->load->model('MAdmin');
-        
+        $this->MAdmin->removeProductImg($productId);
+
 		$dataInfo = array();
 		$files = $_FILES;
         $cpt = count($_FILES['userfile']['name']);
@@ -102,15 +105,28 @@ class Product extends CI_Controller {
 			$_FILES['userfile']['error']= $files['userfile']['error'][$i];
 			$_FILES['userfile']['size']= $files['userfile']['size'][$i];    
 
-			$data = array( 
-                'product_id' => $productId,
-				'img_name' => $_FILES["userfile"]["name"],
-			);
+            if($_FILES['userfile']['name'] != Null && !empty($_FILES['userfile']['name'])){   
+                
+                $data = array( 
+                    'product_id' => $productId,
+                    'img_name' => $_FILES["userfile"]["name"],
+                );
 
-			$this->MAdmin->addProductImg($data);   
+                $this->MAdmin->addProductImg($data);   
 
-			/*upload hinh anh*/
-			$this->MAdmin->do_upload("userfile");
+                /*upload hinh anh*/
+                $this->MAdmin->do_upload("userfile");
+            } else {
+                $nameImg = $this->input->post("input_img_".$i);
+                    if($nameImg != null) {
+                    $data = array( 
+                        'product_id' => $productId,
+                        'img_name' => $nameImg,
+                    );
+
+                    $this->MAdmin->addProductImg($data);
+                }
+            }
 		}
 	}
 

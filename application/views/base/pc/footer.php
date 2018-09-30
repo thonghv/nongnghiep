@@ -6,24 +6,17 @@
                     <h3>Về chúng tôi</h3>
                     <ul>
                         <li>
-                            <p>Hợp tác xã nông nghiệp được thành lập từ năm 2001. Giấy phép kinh doanh số: 0302431595. Từ đó cho đến này Chúng tôi luôn là công ty dẫn đầu trong lĩnh vực nông nghiệp, cung cấp nông sản cho thị trường trong và ngoài nước.</p>                        </li>
-                        </ul>
-                    </div>
+                            <p><?php echo $this->data->getWebAbout(); ?></p>                        
+                        </li>
+                    </ul>
                 </div>
+            </div>
                 <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 col-foot-2">
                     <div class="ul_foot cat wow bounceIn animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;">
                         <h3>Giới thiệu thêm</h3>
                         <ul class="nav-bottom navi_bottom  navi_bottom_cus1">
                             <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> 
                                 <a class="a_navi_bottom a_navi_bottom_cus1" href="">Giới Thiệu Về Công Ty</a>
-                            </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Tầm Nhìn Sứ Mệnh</a>
-                            </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Lịch Sử Hình Thành</a>
-                            </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="">Đối Tác</a>
                             </li>
                         </ul>                
                     </div>
@@ -45,17 +38,7 @@
                             <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
                                 <a class="a_navi_bottom a_navi_bottom_cus1" href="">Chính Sách Riêng Tư</a>
                             </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Điều Khoản &amp; Điều Kiện</a>
-                            </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Thỏa Thuận Người Dùng</a>
-                            </li>
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Chính Sách Đổi Trả</a>
-                            </li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Chính Sách Bảo Hành</a>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>

@@ -9,8 +9,34 @@
 		}
 		
 		public function index(){
-				
+			
+			$this->load->Model("MAdmin");
+
+			$topInfo = $this->MHome->getTopProduct();
+			$topInfoImg = $this->MHome->getTopProductImage();
+
+			$ARTICLE_ABOUT_TYPE = 1;
+			$articleAbout = $this->MAdmin->getArticleById($ARTICLE_ABOUT_TYPE);
+
+			$products = $this->MHome->getProductsByGroupMenuId(1, 8);
+
+			// Get group menu id show home.
+			$lstProduct = array();
+			$groupMenuShow = $this->MHome->getGroupShow();
+			foreach ($groupMenuShow as $info) {
+				$products = $this->MHome->getProductsByGroupMenuId($info -> id, 8);
+				foreach ($products as $p) {
+					array_push($lstProduct, $p);
+				}
+			}
+
 			$data=array(
+				"topInfo"    	=> $topInfo,
+				"topInfoImg" 	=> $topInfoImg,
+
+				"about"		 	=> $articleAbout[0] -> content,
+				"lstProduct"	=> $lstProduct,
+				'groupMenuShow'		=> $groupMenuShow,
 			);
 
 			$this->onLoadView('Home', $data);	

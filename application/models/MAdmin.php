@@ -144,7 +144,7 @@ class MAdmin extends CI_Model {
 
     }
 
-     /** 
+    /** 
     *=====================================================
     *  Products
     */
@@ -173,8 +173,8 @@ class MAdmin extends CI_Model {
     /**
      * Update product
      */
-    public function updateProduct($data) {
-        $this->db->where('id', $masp); 
+    public function updateProduct($id, $data) {
+        $this->db->where('id', $id); 
         $this->db->update("p_product", $data);  
     }
 
@@ -218,4 +218,28 @@ class MAdmin extends CI_Model {
     * =====================================================
     */
 
+
+    /** 
+    *=====================================================
+    *  Article
+    */
+
+    /* Get article by type */
+    public function getArticleById($type) {
+        $query=$this->db->query('SELECT *FROM p_article WHERE type='.$type);
+        return $query->result();
+    }
+
+    /**
+     * Update product
+     */
+    public function updateArticle($type, $data) {
+        $this->db->where('type', $type); 
+        $this->db->update("p_article", $data);  
+    }
+
+    /** 
+    *=====================================================
+    *  Article
+    */
 }

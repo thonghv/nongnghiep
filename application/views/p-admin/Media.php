@@ -60,6 +60,19 @@
           <!-- Start content -->
           <form  enctype="multipart/form-data" action="<?php echo base_url()?>p-admin/media/update" method="post">
             <div class="col-md-12">
+              <?php
+                if(!isset( $_SESSION )) 
+                { 
+                  session_start (); 
+                } 
+                if($this->session->userdata('ok')!=NULL)
+                  {?>   
+                    <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <i class="icon fa fa-check"></i> Cập nhập dữ liệu thành công!
+                    </div>
+              <?php } ?>
+
               <div class="panel panel-info">
                 <div class="panel-heading">
                   <button type="button" class="btn btn-primary" onclick="onAddMore()"><i class="fa fa-plus"></i> Thêm Ảnh</button>
@@ -75,11 +88,12 @@
                             $row=(object)$row;
                         ?>   
                             <tr id = 'p_media_r<?php echo $index; ?>'>
-                              <td style = "width: 316px;">
+                              <td style = "width: 316px;" class="pcode-col">
                                 <span class="control-fileupload">
                                   <input type="file" class="upload" name="userfile[]" onChange="onLoadImage(this, <?php echo $index; ?>);">
                                 </span>
-                                <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> name; ?>">
+                                <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" alt = "<?php echo $row -> name; ?>" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> name; ?>">
+                                <input type="text" class="pcode-hidden" name="input_img_<?php echo $index; ?>" value = "<?php echo $row -> name; ?>">
                               </td>
                               <td>
                                 <button type='button' class= "btn btn-warning pcode-btn" id ='<?php echo $index; ?>' onClick = 'onRemoveFile(this)'><i class="fa fa-close"></i></button>
@@ -142,7 +156,8 @@
  <script src="<?php echo base_url()?>public/admin/js/Chart.js"></script>
  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
  <script src="<?php echo base_url()?>public/admin/js/me.js"></script>
- <!-- AdminLTE for demo purposes -->
 
+ <!-- Remove session -->
+<?php $this->session->unset_userdata('ok'); ?>
 </body>
 </html>

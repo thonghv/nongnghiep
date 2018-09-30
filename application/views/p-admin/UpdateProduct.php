@@ -48,8 +48,8 @@
           Cập Nhập Sản Phẩm
         </h1>
         <ol class="breadcrumb">
-          <li><a href="<?php echo base_url()?>/p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
-          <li><a href="<?php echo base_url()?>/p-admin/product">Sản Phẩm</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/product.html">Sản Phẩm</a></li>
           <li class="active">Cập Nhập</li>
         </ol>
       </section>
@@ -129,6 +129,21 @@
                       <input type="text" class="form-control" id="price" name = "price" placeholder="Giá bán" value = "<?php echo $info[0]->price;?>">
                     </div>
                   </div>
+                   <div class="form-group">
+                    <label for="price" class="col-sm-3 control-label">
+                      Hiển Thị Top
+                    </label>
+
+                    <div class="col-sm-8">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value="1" name ="is_show" <?php if($info[0]->is_show == 1) {
+                            echo "checked"; }?> >
+                          
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="desc" class="col-sm-3 control-label">
                       Hình Ảnh
@@ -151,11 +166,12 @@
                               $row=(object)$row;
                               ?>   
                               <tr id = 'p_media_r<?php echo $index; ?>'>
-                                <td style = "width: 346px;">
+                                <td style = "width: 346px;" class="pcode-col">
                                   <span class="control-fileupload">
                                     <input type="file" class="upload" name="userfile[]" onChange="onLoadImage(this, <?php echo $index; ?>);">
                                   </span>
                                   <img class="img-thumbnail" width = "300px" id="pre_img_<?php echo $index; ?>" name="hinh" src = "<?php echo base_url();?>/public/img-slide/<?php echo $row -> img_name; ?>">
+                                  <input type="text" class="pcode-hidden" name="input_img_<?php echo $index; ?>" value = "<?php echo $row -> img_name; ?>">
                                 </td>
                                 <td>
                                   <button type='button' class= "btn btn-warning pcode-btn" id ='<?php echo $index; ?>' onClick = 'onRemoveFile(this)'><i class="fa fa-close"></i></button>

@@ -48,8 +48,8 @@
           Thêm Sản Phẩm
         </h1>
         <ol class="breadcrumb">
-          <li><a href="<?php echo base_url()?>/p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
-          <li><a href="<?php echo base_url()?>/p-admin/add-product.html">Sản Phẩm</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/product.html">Sản Phẩm</a></li>
           <li class="active">Thêm Mới</li>
         </ol>
       </section>
@@ -119,7 +119,20 @@
                     </label>
 
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="price" name = "price" placeholder="Giá b">
+                      <input type="text" class="form-control" id="price" name = "price" placeholder="Giá bán">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="price" class="col-sm-3 control-label">
+                      Hiển Thị Top
+                    </label>
+
+                    <div class="col-sm-8">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value="1" name ="is_show">
+                        </label>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">

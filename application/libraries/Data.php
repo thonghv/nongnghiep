@@ -28,11 +28,11 @@ class Data {
         return $webTitle[0]->desc;
     }
 
-    function getCompanyName()
+    function getWebAbout()
     {
         $this->CI->load->Model('MConfig');
 
-        $keyTitle = "company.name";
+        $keyTitle = "web.about";
         $webTitle = $this->CI->MConfig->getDesc($keyTitle);
 
         return $webTitle[0]->desc;
@@ -45,18 +45,26 @@ class Data {
         return $this->CI->MCommon->getTags();
     }
 
-    function isVotes($uid, $jsonVotes)
+    /* Get groups menu */
+    function getGroupsMenu()
     {
-        if($uid == 0) {
-            return 0;
-        }
-        
-        $arrayUid = json_decode($jsonVotes);
-        foreach ($arrayUid as $value) {
-            if($uid == (int) $value) {
-                return 1;
-            }
-        }
-        return 0;
+        $this->CI->load->Model('MAdmin');
+        return $this->CI->MAdmin->getGroupsMenu();
     }
+
+    /* Get subs menu */
+    function getSubsMenu()
+    {
+        $this->CI->load->Model('MAdmin');
+        return $this->CI->MAdmin->getGroupSubMenu();
+    }
+
+    /* Get slide list */
+    function getSlides()
+    {
+        $this->CI->load->Model('MAdmin');
+        return $this->CI->MAdmin->getSlide();
+    }
+    
+
 }
