@@ -111,7 +111,7 @@
 	</div>
 	<div class="template_id">
 		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
-			<?php echo $this->data->getWebName(); ?> &nbsp;(Điện Thoại : 090.909.0127)
+			<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
 
@@ -202,67 +202,48 @@
 							 <?php endforeach; }?>
 							<div class='page_break page_break_cus1'>
 								<div class="paging"><?php echo $paginator; ?></div>  
-							</div>				
+							</div>	
+							<br>			
 							<div class="clear"></div>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-4 col-xs-12 col-min-12 single-page-right">
 						<div class="category blog-ctgry">
 							<div class="list-group">
-								<a href="/Nhom-trai-cay-336912" class="list-group-item">Nhóm trái cây</a>
-								<a href="/Nhom-cu-qua-336913" class="list-group-item">Nhóm củ, quả</a>
-								<a href="/Nhom-cai-bap-rau-la-336914" class="list-group-item">Nhóm cải bắp, rau lá</a>
-								<a href="/Nhom-rau-tao-mui-336915" class="list-group-item">Nhóm rau tạo mùi</a>
+								<?php
+									if(isset($lstSubMenu)){
+									foreach ($lstSubMenu as $rows) :
+										$rows=(object)$rows;
+								?>  
+								<a href="/Nhom-trai-cay-336912" class="list-group-item"><?php echo $rows -> name; ?></a>
+								<?php endforeach; }?>
 							</div>
 						</div>	
 						<div class="recent-posts">
 							<h4>SẢN PHẨM HOT</h4>
+							<?php
+									if(isset($productsTop)){
+									foreach ($productsTop as $rows) :
+										$rows=(object)$rows;
+								?>  
 							<div class='recent-posts-info'>
 								<div class='posts-left sngl-img'>
-									<a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750443998850_chanh-day.jpg' alt='Chanh giây' style='width: 90%;' /> </a>
+									<a href=''> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
 								</div>
 								<div class='posts-right'>
-									<h5><a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'>Chanh giây</a></h5>
-									<span class=' right_gia_km'>55,000 VNĐ</span>
-									<span class='item_price right_gia_ban'>25,000 VNĐ</span>
+									<h5><a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'><?php echo $rows -> name; ?></a></h5>
 								</div>
 								<div class='clearfix'> </div>
-							</div>	<div class='recent-posts-info'>
-								<div class='posts-left sngl-img'>
-									<a href='http://demonongnghiep.web30s.vn/Nha-dam-336918'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750375491709_Mat-na-tu-nhien-tri-tan-nhang-4.jpg' alt='Nha đam' style='width: 90%;' /> </a>
-								</div>
-								<div class='posts-right'>
-									<h5><a href='http://demonongnghiep.web30s.vn/Nha-dam-336918'>Nha đam</a></h5>
-									<span class='hide right_gia_km'></span>
-									<span class='item_price right_gia_ban'>42,000 VNĐ</span>
-								</div>
-								<div class='clearfix'> </div>
-							</div>	<div class='recent-posts-info'>
-								<div class='posts-left sngl-img'>
-									<a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374884347_chuoi-ngu.jpg' alt='Chuối laba' style='width: 90%;' /> </a>
-								</div>
-								<div class='posts-right'>
-									<h5><a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917'>Chuối laba</a></h5>
-									<span class='hide right_gia_km'></span>
-									<span class='item_price right_gia_ban'>16,000 VNĐ</span>
-								</div>
-								<div class='clearfix'> </div>
-							</div>	<div class='recent-posts-info'>
-								<div class='posts-left sngl-img'>
-									<a href='http://demonongnghiep.web30s.vn/Bo-sap-336916'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374024529_bo-sap-daklak-8.jpg' alt='Bơ sáp' style='width: 90%;' /> </a>
-								</div>
-								<div class='posts-right'>
-									<h5><a href='http://demonongnghiep.web30s.vn/Bo-sap-336916'>Bơ sáp</a></h5>
-									<span class='hide right_gia_km'></span>
-									<span class='item_price right_gia_ban'>26,000 VNĐ</span>
-								</div>
-								<div class='clearfix'> </div>
-							</div>			
+							</div>
+							<?php endforeach; }?>
+
 							<div class="clearfix"> </div>
 						</div>
-					</div>		<div class="clearfix"> </div>
+					</div>		
+					<div class="clearfix"> </div>
 				</div>
-			</div>			</div>
+			</div>			
+			</div>
 		</section>
 	</article>
 

@@ -5,6 +5,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->Model("MCommon");
+			$this->load->Model("MProduct");
 		}
 		
 		public function index(){
@@ -13,6 +14,30 @@
 			);
 
 			$this->onLoadView('Product', $data);	
+		}
+
+		public function detail($productId) {
+
+			$productInfo = $this->MProduct->getInfo($productId);
+			$imgInfo = $this->MProduct->getProductImg($productId);
+
+			$this->load->Model("MAdmin");
+			$subMenuInfo = $this->MAdmin->getGroupSubMenuInfo($productInfo[0] -> sub_menu_id);
+			$lstSubMenu = $this->MAdmin->getGroupSubMenuById($subMenuInfo[0]->group_id);
+	
+			$productsTop = $this->MProduct->getProductsTopViews($productInfo[0] -> sub_menu_id);
+			$productsSame = $this->MProduct->getProductsTopSame($productInfo[0] -> sub_menu_id);
+			$data=array(
+				"info" => $productInfo,
+				"imgInfo" => $imgInfo,
+				
+				'lstSubMenu' => $lstSubMenu,
+				'productsTop' => $productsTop,
+				'productsSame' => $productsSame,
+			);
+	
+			$this->onLoadView('Product', $data);
+	
 		}
 
 		public function onLoadView($name, $data) {

@@ -106,19 +106,22 @@
 	</div>
 	<div class="template_id">
 		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
-			<?php echo $this->data->getCompanyName(); ?> &nbsp;(Điện Thoại : 090.909.0127)
+		<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
 
 </div>
 <div class="header bg_header" id="home" style = "margin-top: 55px; min-height: 380px;">
 	<div class="slidercontainer">  
-		<div class="showSlide">  
-			<img height="390px" width="" src="<?php echo base_url()?>public/img/banner.jpg" />  
-		</div>
-		<div class="showSlide">  
-			<img height="390px" src="http://files.vforum.vn/2015/T10/img/vforum.vn-233771-natural-landscape-16.jpg" />  
-		</div>  
+			<?php
+                if($this->data->getSlides() != null){
+                foreach ($this->data->getSlides() as $rows) :
+                    $rows=(object)$rows;
+            ?>   
+            <div class="showSlide">  
+                <img height="390px" width="" src="<?php echo base_url()?>public/img-slide/<?php echo $rows->name; ?>" />  
+            </div>
+            <?php endforeach; }?> 
 		<a class="left" onclick="nextSlide(-1)">&#10094;</a>  
 		<a class="right" onclick="nextSlide(1)">&#10095;</a>  
 	</div>
@@ -163,9 +166,12 @@
 						<div class="col-md-12">
 							<div class='global_left_panel global_left_panel_cus1' style="width: 25%; float: left;">
 								<div class="global_gioithieu11 global_gioithieu11_cus1">Giới thiệu thêm</div>
-								<a href='/Gioi-Thieu-Ve-Cong-Ty-336941' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Giới Thiệu Về Công Ty</a><a href='/Bo-May-To-Chuc-336942' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Bộ Máy Tổ Chức</a><a href='/Tam-Nhin-Su-Menh-336943' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Tầm Nhìn Sứ Mệnh</a><a href='/Lich-Su-Hinh-Thanh-336944' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Lịch Sử Hình Thành</a><a href='/Doi-Tac-336945' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Đối Tác</a>    <div class="global_dichvu10 global_dichvu10_cus1">Dịch vụ thêm</div>
-								<a href='/Cung-ung-vat-tu-may-moc-nong-nghiep-336948' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng vật tư, máy móc nông nghiệp</a><a href='/Cung-ung-phan-bon-336949' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng phân bón</a><a href='/Cung-ung-giong-cay-trong-vat-nuoi-336950' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng giống cây trồng, vật nuôi</a><a href='/Cung-ung-thuoc-bao-ve-thuc-vat-336951' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng thuốc bảo vệ thực vật</a><a href='/Cho-vay-von-ho-tro-san-xuat-336947' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cho vay vốn hỗ trợ sản xuất</a>    <div class="global_thongtin12 global_thongtin12_cus1">Thông tin thêm</div>
-								<a href='/Chinh-Sach-Rieng-Tu-336952' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Chính Sách Riêng Tư</a><a href='/Dieu-Khoan-Dieu-Kien-336953' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Điều Khoản & Điều Kiện</a><a href='/Thoa-Thuan-Nguoi-Dung-336954' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Thỏa Thuận Người Dùng</a><a href='/Chinh-Sach-Doi-Tra-336955' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Chính Sách Đổi Trả</a><a href='/Chinh-Sach-Bao-Hanh-336956' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Chính Sách Bảo Hành</a>
+								<a href='/Gioi-Thieu-Ve-Cong-Ty-336941' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Giới Thiệu Về Công Ty</a>
+
+								<div class="global_dichvu10 global_dichvu10_cus1">Dịch vụ thêm</div>
+								<a href='/Cung-ung-vat-tu-may-moc-nong-nghiep-336948' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng vật tư, máy móc nông nghiệp</a>
+								<div class="global_thongtin12 global_thongtin12_cus1">Thông tin thêm</div>
+								<a href='/Chinh-Sach-Rieng-Tu-336952' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Chính Sách Riêng Tư</a>
 							</div>
 							<div class="global_right_panel_info right_panel_info_cus1" style="width: 70%; float: right;">
 								<div class="head_title_center title_info_cus1 title_info_cus2">Giới thiệu</div>

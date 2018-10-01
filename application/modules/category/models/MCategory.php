@@ -20,4 +20,10 @@ class MCategory extends CI_Model {
         $query=$this->db->query('SELECT COUNT(*) as num FROM p_product WHERE sub_menu_id = '.$subMenuId);
         return $query->result();
     }
+
+    /* Get top products hot */
+	public function getProductsTopViews($subMenuId){
+		$query=$this->db->query('SELECT *FROM p_product WHERE sub_menu_id = '.$subMenuId.' ORDER BY num_view DESC LIMIT 4');
+		return $query->result();
+	}
 }

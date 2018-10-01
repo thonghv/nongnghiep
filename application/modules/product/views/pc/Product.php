@@ -106,19 +106,22 @@
 	</div>
 	<div class="template_id">
 		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
-			<?php echo $this->data->getCompanyName(); ?> &nbsp;(Điện Thoại : 090.909.0127)
+		<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
 
 </div>
 <div class="header bg_header" id="home" style = "margin-top: 55px; min-height: 380px;">
 	<div class="slidercontainer">  
-		<div class="showSlide">  
-			<img height="390px" width="" src="<?php echo base_url()?>public/img/banner.jpg" />  
-		</div>
-		<div class="showSlide">  
-			<img height="390px" src="http://files.vforum.vn/2015/T10/img/vforum.vn-233771-natural-landscape-16.jpg" />  
-		</div>  
+	<?php
+                if($this->data->getSlides() != null){
+                foreach ($this->data->getSlides() as $rows) :
+                    $rows=(object)$rows;
+            ?>   
+            <div class="showSlide">  
+                <img height="390px" width="" src="<?php echo base_url()?>public/img-slide/<?php echo $rows->name; ?>" />  
+            </div>
+            <?php endforeach; }?> 
 		<a class="left" onclick="nextSlide(-1)">&#10094;</a>  
 		<a class="right" onclick="nextSlide(1)">&#10095;</a>  
 	</div>
@@ -197,30 +200,34 @@
 												</div>
 
 												<div class="simpleLens-thumbnails-container body_thumb_content body_thumb_content_cus1">
+													<?php
+														if(isset($imgInfo)){
+														foreach ($imgInfo as $rows) :
+															$rows=(object)$rows;
+													?>  
 													<a href='JavaScript:void(0);' class='simpleLens-thumbnail-wrapper'
-													data-lens-image='http://cdn.web30s.vn/datafiles/4252/upload/images/14750449112698_3-1.jpg'
-													data-big-image='http://cdn.web30s.vn/datafiles/4252/upload/images/14750449112698_3-1.jpg'>
-													<img class='border_images' src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750449112698_3-1.jpg' width='50'>
-												</a>
-												<a href='JavaScript:void(0);' class='simpleLens-thumbnail-wrapper'
-												data-lens-image='https://hatgiongf1.com/wp-content/uploads/2015/07/ca-chua-bi-lun-do21-550x550.jpg'
-												data-big-image='https://hatgiongf1.com/wp-content/uploads/2015/07/ca-chua-bi-lun-do21-550x550.jpg'>
-												<img class='border_images' src='https://hatgiongf1.com/wp-content/uploads/2015/07/ca-chua-bi-lun-do21-550x550.jpg' width='50'>
-											</a>
-
+													data-lens-image='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>'
+													data-big-image='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>'>
+													<img class='border_images' src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' width='50'>
+													</a>
+													<?php endforeach; }?>
+													
 										</div>
 
 									</div>
 
 									<div class="main_col_right main_col_right_cus1">
 										<div style='padding:8px;' class='text_color'><div class='comment_nho'><span id='love_2368969'>0</span> Yêu thích</div> <div class='comment_nho'><span id='want_2368969'>0</span> Muốn mua</div></div>        <div class="clear"></div>
-										<h1 class="main_right_title">Dưa leo</h1>
+										<h1 class="main_right_title"><?php echo $info[0] -> name; ?></h1>
 
 										<div class="clear"></div>
 										<div class="line_top_1 line_top_cus1"></div>
-										<div class="global_ghichu_1 global_ghichu_2"><p>Chuy&ecirc;n cung cấp n&ocirc;ng sản khu vực trong v&agrave; ngo&agrave;i nước</p></div>
+										<div class="global_ghichu_1 global_ghichu_2">
+										<?php echo $info[0] -> overview; ?>
+										</div>
 										<div class="clear"></div>
-										<div class='gia_thanhtien gia_thanhtien_cus1'><span class='glo-tgiagoc' style='display:none'>Giá bán</span>16,000 VND </div>        <div class="product_details_cart">
+										<div class='gia_thanhtien gia_thanhtien_cus1'><span class='glo-tgiagoc' style='display:none'></div>        
+										<div class="product_details_cart">
 
 											<!-- update by 1k 24-3-2017 v1-->
 											<div class="product-quantity">
@@ -292,19 +299,9 @@
 
 										<div class="main_content_body main_content_body_cus1">
 											<div class='microformat'>
-												<p>C&aacute;c giống đu đủ của Việt Nam hay của Th&aacute;i Lan, Đ&agrave;i Loan, Trung Quốc, ấn Độ... đều để giống được, với điều kiện kh&ocirc;ng phải l&agrave; giống lai F1. C&aacute;c giống của Đ&agrave;i Loan c&oacute; tỷ lệ c&acirc;y c&aacute;i cao v&agrave; thường thuộc loại c&acirc;y lai nh&acirc;n tạo.</p>
-												<p>C&acirc;y đu đủ vốn c&oacute; t&iacute;nh di truyền phức tạp, phấn của hoa đực v&agrave; hoa lưỡng t&iacute;nh lại rất kh&aacute;c nhau, t&iacute;nh mẫn cảm của phấn hoa đực cao gấp nhiều lần của hạt phấn hoa lưỡng t&iacute;nh, do đ&oacute; đu đủ rất dễ bị lai tạp, kh&oacute; giữ được giống tốt thuần chủng nếu kh&ocirc;ng thụ phấn bắt buộc.</p>
-												<p>Việc thụ phấn bắt buộc trước hết phải chọn c&acirc;y giống khoẻ, &iacute;t s&acirc;u bệnh, cần phải chọn đ&uacute;ng giống, chọn những nụ hoa ra ở lứa quả đầu ti&ecirc;n, khi c&acirc;y c&ograve;n đang rất sung sức, nếu v&agrave;o đ&uacute;ng l&uacute;c thời tiết đầu m&ugrave;a h&egrave; th&igrave; c&agrave;ng tốt, sau n&agrave;y số hạt sẽ cho nhiều hơn. D&ugrave;ng kim ch&acirc;m cho c&aacute;c nụ hoa nhỏ ở trong ch&ugrave;m hoa nhiều vết, mấy h&ocirc;m sau hoa tự rụng đi, chỉ để lại một nụ hoa ở giữa to nhất, khi đầu c&aacute;nh của nụ hoa bắt đầu c&oacute; m&agrave;u trắng th&igrave; d&ugrave;ng t&uacute;i nilon trong, ch&acirc;m thật nhiều lỗ cho dễ tho&aacute;t hơi nước v&agrave; kh&ocirc;ng kh&iacute;, sau đ&oacute; bao nụ hoa lại theo d&otilde;i tới khi hoa nở. C&aacute;c buổi s&aacute;ng th&aacute;o t&uacute;i nilon ra, ngắt bao phấn thoa l&ecirc;n đầu nhụy hoa c&aacute;i. Nếu c&acirc;y giống l&agrave; c&acirc;y lưỡng t&iacute;nh, c&oacute; hoa lưỡng t&iacute;nh th&igrave; lấy bao phấn của hạt hoa lưỡng t&iacute;nh. Nếu l&agrave; giống chỉ c&oacute; hoa c&aacute;i v&agrave; hoa đực ri&ecirc;ng rẽ tr&ecirc;n từng c&acirc;y th&igrave; lấy phấn hoa đực v&agrave; sau đ&oacute; sẽ c&oacute; 50% l&agrave; hạt sẽ cho c&acirc;y đực. Thụ phấn xong, bao hoa lại để tr&aacute;nh hoa bị thụ phấn của giống kh&aacute;c ngo&agrave;i &yacute; muốn. Chờ 2-3 ng&agrave;y sau hoa rụng đi th&igrave; th&aacute;o t&uacute;i nilon ra cho quả ph&aacute;t triển tự nhi&ecirc;n.</p>
-												<p>Muốn đu đủ cho sai quả v&agrave; c&oacute; quả to cần chọn ch&acirc;n đất tốt, ẩm v&agrave; tho&aacute;t nước tốt, &aacute;nh s&aacute;ng đầy đủ, kh&ocirc;ng bị c&acirc;y kh&aacute;c che khuất. Chăm s&oacute;c thật tốt cho c&acirc;y lu&ocirc;n c&oacute; 50-60 l&aacute; xanh tốt tr&ecirc;n c&acirc;y.</p>
-												<p>Khi mới trồng n&ecirc;n đ&agrave;o hố s&acirc;u, rộng, b&oacute;n l&oacute;t từ 20-30kg ph&acirc;n hữu cơ mục v&agrave; th&ecirc;m 0,1-0,2kg l&acirc;n, sang th&aacute;ng thứ 2-3 th&igrave; b&oacute;n th&uacute;c mỗi gốc khoảng 25-30 gam đạm v&agrave; 40 gam DAP ho&agrave; tan trong nước, tưới v&agrave;o dưới t&aacute;n c&acirc;y, c&aacute;ch xa gốc 20-30cm. C&aacute;c th&aacute;ng sau, c&acirc;y to ra, hoa quả nhiều, cần tăng dần lượng ph&acirc;n cho tới l&uacute;c quả ch&iacute;n, hạn chế ở mức độ 120-150 gam ur&ecirc; v&agrave; 140-160 gam DAP cho tới khi c&acirc;y hết khả năng cho quả thương phẩm. Ch&uacute; &yacute; v&agrave;o m&ugrave;a lạnh cần tưới ẩm thường xuy&ecirc;n, kết hợp phun oxyclorua đồng. ở ấn Độ người ta c&ograve;n tưới cả dung dịch n&agrave;y v&agrave;o gốc c&acirc;y, gi&uacute;p c&acirc;y c&oacute; th&ecirc;m vi lượng đồng, chống r&eacute;t v&agrave; bạc l&aacute;. Ch&uacute; &yacute; ph&ograve;ng trừ rệp hại c&acirc;y.</p>
-												<div class='clear'></div>
-
-												<div class='clear cao20'></div>
-												<div class='dv-fbbox-like'>
-													<div class='fb-like' id='fb-like' data-href='http://demonongnghiep.web30s.vn/Dua-leo-336928' data-layout='standard' data-action='like' data-size='small' data-show-faces='true' data-share='true'></div>
-													<div class='fb-comments' data-width='100%' data-href='http://demonongnghiep.web30s.vn/Dua-leo-336928' data-numposts='5'></div>
-												</div>
-											</div>    <script>
+											<?php echo $info[0] -> content; ?>
+											</div>    
+											<script>
 												var div_fb_like = document.getElementById('fb-like');
 												if (div_fb_like) {
 													div_fb_like.setAttribute('data-width', div_fb_like.parentNode.offsetWidth);
@@ -321,6 +318,11 @@
 									<div class="service-sec dv-splienquan">
 										<div class="border-top-splq"></div>
 										<div class="service-grids dv-ndung-sptt">
+											<?php
+												if(isset($productsSame)){
+												foreach ($productsSame as $rows) :
+													$rows=(object)$rows;
+											?>  
 											<div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
 												<div class=' arrival-grid simpleCart_shelfItem wow bounceInLeft animated glo-trang-thai-sp glo-trang-thai-sp-2368962 data='2368962' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
 													<div class='grid-arr'>
@@ -328,168 +330,23 @@
 															<figure>		
 																<a href='http://demonongnghiep.web30s.vn/Bau-336921' class='new-gri' >
 																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750444935208_bau-xanh-500x500.jpg' class='img-responsive' alt=''>
+																		<img  src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' class='img-responsive' alt=''>
 																	</div>		
 																</a>		
 															</figure>	
 														</div>
 														<div class='women'>
 															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Bau-336921'>Bầu</a></h6>
-																<span class=' gia_km'>55,000 VNĐ</span>
-																<span class='item_price gia_ban'>25,000 VNĐ</span>
+																<h6><a href='http://demonongnghiep.web30s.vn/Bau-336921'><?php echo $rows -> name; ?></a></h6>
 															</div>
 														</div>
 													</div>
 												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow fadeInUpBig animated glo-trang-thai-sp glo-trang-thai-sp-2368963 data='2368963' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Khoai-lang-Nhat-tim-336922' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750445532231_khoai-lang-nhat-tim-1438790262.png' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Khoai-lang-Nhat-tim-336922'>Khoai lang Nhật tím</a></h6>
-																<span class=' gia_km'>42,000 VNĐ</span>
-																<span class='item_price gia_ban'>33,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow bounceInRight animated glo-trang-thai-sp glo-trang-thai-sp-2368964 data='2368964' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Ca-tim-336923' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750445985689_ca-tim-1024x768-500x500.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Ca-tim-336923'>Cà tím</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>22,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow bounceInLeft animated glo-trang-thai-sp glo-trang-thai-sp-2368965 data='2368965' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Bong-cai-xanh-336924' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750446805944_bong-cai-cung-la-lieu-thuoc-trang-da-huu-dung-thuoc-trang-da2.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Bong-cai-xanh-336924'>Bông cải xanh</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>31,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow fadeInDownBig animated glo-trang-thai-sp glo-trang-thai-sp-2368966 data='2368966' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Khoai-tay-Da-Lat-336925' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750447614212_3-cach-tri-mun-dau-den-bang-khoai-tay-khong-ton-kem.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Khoai-tay-Da-Lat-336925'>Khoai tây Đà Lạt</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>15,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow bounceInRight animated glo-trang-thai-sp glo-trang-thai-sp-2368967 data='2368967' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Ca-rot-Da-Lat-336926' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750448136825_ca-rot.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Ca-rot-Da-Lat-336926'>Cà rốt Đà Lạt</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>20,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow bounceInLeft animated glo-trang-thai-sp glo-trang-thai-sp-2368968 data='2368968' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Bi-do-tron-Da-Lat-336927' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750449887927_bi-do-ho-lo-loai-1kg.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Bi-do-tron-Da-Lat-336927'>Bí đỏ tròn Đà Lạt</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>12,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div><div class='col-md-4 col-sm-6 col-xs-6 col-min-12' 2>
-												<div class=' arrival-grid simpleCart_shelfItem wow fadeInUpBig animated glo-trang-thai-sp glo-trang-thai-sp-2368969 data='2368969' data-wow-delay='0.4s' style='visibility: visible; -webkit-animation-delay: 0.4s;'>
-													<div class='grid-arr'>
-														<div  class='grid-arrival'>
-															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Dua-leo-336928' class='new-gri' >
-																	<div class='grid-img'>
-																		<img  src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750449112698_3-1.jpg' class='img-responsive' alt=''>
-																	</div>		
-																</a>		
-															</figure>	
-														</div>
-														<div class='women'>
-															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Dua-leo-336928'>Dưa leo</a></h6>
-																<span class='hide gia_km'></span>
-																<span class='item_price gia_ban'>16,000 VNĐ</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>                        </div>
+											</div>
+											
+											<?php endforeach; }?>
+											
+											</div>
 										</div>
 									</div>
 									<div class="clearfix"></div>
@@ -497,55 +354,32 @@
 								<div class="col-md-3 col-sm-4 col-xs-12 col-min-12 single-page-right">
 									<div class="category blog-ctgry">
 										<div class="list-group">
-											<a href="/Nhom-trai-cay-336912" class="list-group-item">Nhóm trái cây</a>
-											<a href="/Nhom-cu-qua-336913" class="list-group-item">Nhóm củ, quả</a>
-											<a href="/Nhom-cai-bap-rau-la-336914" class="list-group-item">Nhóm cải bắp, rau lá</a>
-											<a href="/Nhom-rau-tao-mui-336915" class="list-group-item">Nhóm rau tạo mùi</a>
+										<?php
+											if(isset($lstSubMenu)){
+											foreach ($lstSubMenu as $rows) :
+												$rows=(object)$rows;
+										?>  
+										<a href="/Nhom-trai-cay-336912" class="list-group-item"><?php echo $rows -> name; ?></a>
+										<?php endforeach; }?>
 										</div>
 									</div>	
 									<div class="recent-posts">
 										<h4>SẢN PHẨM HOT</h4>
+										<?php
+											if(isset($productsTop)){
+											foreach ($productsTop as $rows) :
+												$rows=(object)$rows;
+										?>  
 										<div class='recent-posts-info'>
 											<div class='posts-left sngl-img'>
-												<a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750443998850_chanh-day.jpg' alt='Chanh giây' style='width: 90%;' /> </a>
+												<a href=''> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
 											</div>
 											<div class='posts-right'>
-												<h5><a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'>Chanh giây</a></h5>
-												<span class=' right_gia_km'>55,000 VNĐ</span>
-												<span class='item_price right_gia_ban'>25,000 VNĐ</span>
+												<h5><a href=''><?php echo $rows -> name; ?></a></h5>
 											</div>
 											<div class='clearfix'> </div>
-										</div>	<div class='recent-posts-info'>
-											<div class='posts-left sngl-img'>
-												<a href='http://demonongnghiep.web30s.vn/Nha-dam-336918'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750375491709_Mat-na-tu-nhien-tri-tan-nhang-4.jpg' alt='Nha đam' style='width: 90%;' /> </a>
-											</div>
-											<div class='posts-right'>
-												<h5><a href='http://demonongnghiep.web30s.vn/Nha-dam-336918'>Nha đam</a></h5>
-												<span class='hide right_gia_km'></span>
-												<span class='item_price right_gia_ban'>42,000 VNĐ</span>
-											</div>
-											<div class='clearfix'> </div>
-										</div>	<div class='recent-posts-info'>
-											<div class='posts-left sngl-img'>
-												<a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374884347_chuoi-ngu.jpg' alt='Chuối laba' style='width: 90%;' /> </a>
-											</div>
-											<div class='posts-right'>
-												<h5><a href='http://demonongnghiep.web30s.vn/Chuoi-laba-336917'>Chuối laba</a></h5>
-												<span class='hide right_gia_km'></span>
-												<span class='item_price right_gia_ban'>16,000 VNĐ</span>
-											</div>
-											<div class='clearfix'> </div>
-										</div>	<div class='recent-posts-info'>
-											<div class='posts-left sngl-img'>
-												<a href='http://demonongnghiep.web30s.vn/Bo-sap-336916'> <img src='http://cdn.web30s.vn/datafiles/4252/upload/thumb_images/14750374024529_bo-sap-daklak-8.jpg' alt='Bơ sáp' style='width: 90%;' /> </a>
-											</div>
-											<div class='posts-right'>
-												<h5><a href='http://demonongnghiep.web30s.vn/Bo-sap-336916'>Bơ sáp</a></h5>
-												<span class='hide right_gia_km'></span>
-												<span class='item_price right_gia_ban'>26,000 VNĐ</span>
-											</div>
-											<div class='clearfix'> </div>
-										</div>			
+										</div>
+										<?php endforeach; }?>			
 										<div class="clearfix"> </div>
 									</div>
 								</div>            <div class="clearfix"></div>

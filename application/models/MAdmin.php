@@ -35,6 +35,12 @@ class MAdmin extends CI_Model {
         return $query->result();
     }
 
+    /* Get sub menu info  */
+    public function getGroupSubMenuInfo($subMenuId) {
+        $query=$this->db->query('SELECT *FROM '.$this->_sub_menu.' WHERE id ='.$subMenuId);
+        return $query->result();
+    }
+
     /* On update menu */
     public function updateGroupMenu($id, $data){
         $this->db->where("id", $id); 

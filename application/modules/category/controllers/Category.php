@@ -21,7 +21,7 @@ class Category extends CI_Controller{
 		/* Start pagination */
 		/**/
 
-		$limit = 6;
+		$limit = 1;
 		$this->load->library('pagination'); 
 		$infoNum = $this->MCategory->getCountProducts($subMenuId);
 
@@ -30,7 +30,7 @@ class Category extends CI_Controller{
 			$offset = 0;
 		}
 
-		$config['base_url'] = site_url() . 'category?getproducts?limit='.$limit;
+		$config['base_url'] = site_url() . 'category?getproducts/3?';
 		$config['total_rows'] = $infoNum[0] -> num;
 		$config['per_page'] = $limit;
 		$config['prev_link'] 	= 'Lùi Trang';
@@ -44,10 +44,18 @@ class Category extends CI_Controller{
 		/**/
 		/*  End pagination */
 
+		$this->load->Model("MAdmin");
+		$subMenuInfo = $this->MAdmin->getGroupSubMenuInfo($subMenuId);
+		$lstSubMenu = $this->MAdmin->getGroupSubMenuById($subMenuInfo[0]->group_id);
+
 		$products = $this->MCategory->getProducts($subMenuId, $offset, $limit);
+		$productsTop = $this->MCategory->getProducts($subMenuId, $offset, $limit);
 		$data=array(
 			"products" => $products,
 			'paginator' => $paginator,
+
+			'lstSubMenu' => $lstSubMenu,
+			'productsTop' => $productsTop,
 		);
 
 		$this->onLoadView('Category', $data);
