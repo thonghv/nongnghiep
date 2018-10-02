@@ -147,7 +147,11 @@
                                                     <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-remove-<?php echo $row->id;?>">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;Xóa&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                 </td>
-                                                <td><label><input type="checkbox" value="IS SHOW HOME"> &nbsp;</label></td>
+                                                <td>
+                                                    <?php if($row ->is_show == 1) {?>
+                                                        <i class="fa fa-check"></i>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>
                                             <?php endforeach; }?>
                                         </tbody>

@@ -8,41 +8,60 @@
 		}
 		
 		public function index(){
-				
+
+			$this->load->Model("MAdmin");
+			$posts = $this->MAdmin->getArticleById(1);
 			$data=array(
+				'content'  => $posts,
+				'nameType' => 'Giới Thiệu',
 			);
 
-			$this->onLoadView('Introduce', $data);	
+			$this->onLoadView('Posts', $data);	
 		}
 
 		/**
 		Bài viết giới thiệu
 		*/
 		public function introduce() {
+			$this->load->Model("MAdmin");
+			$posts = $this->MAdmin->getArticleById(1);
+
 			$data=array(
+				'content'  => $posts,
+				'nameType' => 'Giới Thiệu',
 			);
 
-			$this->onLoadView('Introduce', $data);	
+			$this->onLoadView('Posts', $data);	
 		}
 
 		/**
 		Bài viết tuyển dụng
 		*/
 		public function recruiment() {
+			$this->load->Model("MAdmin");
+			$posts = $this->MAdmin->getArticleById(2);
+
 			$data=array(
+				'content'  => $posts,
+				'nameType' => 'Tuyển Dụng',
 			);
 
-			$this->onLoadView('Recruiment', $data);	
+			$this->onLoadView('Posts', $data);	
 		}
 
 		/**
 		Bài viết khoa học
 		*/
 		public function article() {
+			$this->load->Model("MAdmin");
+			$posts = $this->MAdmin->getArticleById(3);
+
 			$data=array(
+				'content'  => $posts,
+				'nameType' => 'Bài Viết Khoa Học',
 			);
 
-			$this->onLoadView('Article', $data);	
+			$this->onLoadView('Posts', $data);		
 		}
 
 		public function onLoadView($name, $data) {

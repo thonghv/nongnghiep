@@ -158,12 +158,7 @@
                                                                 </span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td><strong>Giá</strong></td>
-                                                            <td>
-                                                                <?php echo $row -> price; ?> VND
-                                                            </td>
-                                                        </tr>
+                                                        
                                                         <tr>
                                                             <td><strong>Hình Ảnh</strong></td>
                                                             <td>
@@ -175,6 +170,16 @@
                                                                 ?> 
                                                                 <img src="<?php echo base_url()?>public/img-slide/<?php echo $imgr -> img_name; ?>" class="img-thumbnail" width = "100px;" alt="<?php echo $row -> product_name; ?>"> 
                                                                 <?php } endforeach; }?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Hiển Thị Top</strong></td>
+                                                            <td>
+                                                                <?php if($row ->is_show == 1) {?>
+                                                                    <i class="fa fa-check"></i>
+                                                                <?php } else { ?>
+                                                                    <i class="fa fa-circle"></i>
+                                                                <?php } ?>
                                                             </td>
                                                         </tr>
                                                         <tr>

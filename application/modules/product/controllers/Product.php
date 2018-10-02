@@ -34,6 +34,8 @@
 				'lstSubMenu' => $lstSubMenu,
 				'productsTop' => $productsTop,
 				'productsSame' => $productsSame,
+
+				'categoryInfo' => $subMenuInfo,
 			);
 	
 			$this->onLoadView('Product', $data);

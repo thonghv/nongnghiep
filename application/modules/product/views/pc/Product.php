@@ -3,7 +3,10 @@
 <html>
 <head>
 
-	<title>Product ....</title>
+	<title>
+		<?php echo $info[0] -> name; ?> | <?php echo $this->data->getWebTitle(); ?>
+        ?>
+	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 	<meta name="description" content="<?php echo $this->data->getWebTitle(); ?>"/>
@@ -12,10 +15,10 @@
 
 	<meta property="fb:app_id" content="485481295145208" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="">
+	<meta property="og:title" content="<?php echo $info[0] -> name; ?>" />
+	<meta property="og:description" content="<?php echo $info[0] -> overview; ?>" />
+	<meta property="og:url" content="<?php echo base_url()?>san-pham/<?php echo $info[0] -> slug; ?>-<?php echo $info[0] ->id;?>.html" />
+	<meta property="og:image" content="<?php echo base_url()?>public/img-slide/<?php echo $info[0]-> img_name; ?>">
 	<meta property="og:image:width" content="200" />
 	<meta property="og:image:height" content="200" />
 
@@ -85,6 +88,10 @@
 	}  
 	.left:hover, .right:hover {  
 		background-color: rgb(179, 173, 173) !important;
+	}
+	.img-responsive {
+	    width: 223px;
+	    height: 223px;
 	}  
 </style>
 </head>
@@ -101,11 +108,11 @@
 <div class="dv-header">
 	<div id="logo">
 		<h1 class="logo">
-			<a href="https://web30s.vn/"><img src="http://web30s.vn/images/logo.png" alt=""></a>
+			<a href="<?php echo base_url()?>"><img src="http://web30s.vn/images/logo.png" alt=""></a>
 		</h1>
 	</div>
 	<div class="template_id">
-		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
+		<a href="">
 		<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
@@ -113,7 +120,7 @@
 </div>
 <div class="header bg_header" id="home" style = "margin-top: 55px; min-height: 380px;">
 	<div class="slidercontainer">  
-	<?php
+			<?php
                 if($this->data->getSlides() != null){
                 foreach ($this->data->getSlides() as $rows) :
                     $rows=(object)$rows;
@@ -169,7 +176,7 @@
 								<div class="product-model">
 									<div class="items-sec bre_viewpro view_product_sp" style="float: left;">
 
-										<div class="breadcrumb"><a href='http://demonongnghiep.web30s.vn/San-pham' class='linky'><span>Sản phẩm</span></a><span class=''>&raquo;</span><a href='http://demonongnghiep.web30s.vn/Nhom-cu-qua-336913' class='linky'><span>Nhóm củ, quả</span></a></div>
+										<div class="breadcrumb"><a href='' class='linky'><span>Sản phẩm</span></a><span class=''>&raquo;</span><a href='<?php echo base_url()?><?php echo $categoryInfo[0] -> slug;?>-<?php echo $categoryInfo[0] -> id;?>.html' class='linky'><span><?php echo $categoryInfo[0] -> name; ?></span></a></div>
 
 										<a href='JavaScript:ajax_action(2368969,1);' class='butthree' style='margin-left:10px;'><img src='/images/love_icon.png' align='absmiddle' width='15' height='15'>Thích</a>
 										<a href='JavaScript:ajax_action(2368969,2);' class='butthree' style='margin-left:70px;'><img src='/images/needle_icon.png' align='absmiddle' width='15' height='15'> Muốn</a>
@@ -193,8 +200,8 @@
 											<div class="simpleLens-gallery-container main_col_left main_col_left_cus1" id="demo-1">
 												<div class="simpleLens-container">
 													<div class="simpleLens-big-image-container">
-														<a class="simpleLens-lens-image" data-lens-image="http://cdn.web30s.vn/datafiles/4252/upload/images/14750449112698_3-1.jpg">
-															<img alt='Dưa leo' class="simpleLens-big-image" src="http://cdn.web30s.vn/datafiles/4252/upload/images/14750449112698_3-1.jpg"/>
+														<a class="simpleLens-lens-image" data-lens-image="<?php echo base_url()?>public/img-slide/<?php echo $info[0]->img_name; ?>">
+															<img alt='Dưa leo' class="simpleLens-big-image" src="<?php echo base_url()?>public/img-slide/<?php echo $info[0]->img_name; ?>"/>
 														</a>
 													</div>
 												</div>
@@ -238,7 +245,7 @@
 													<!--update by 5k 26-7-2016-->
 													<div class="left icon_body icon_body_sosanh_cus1"><a href='JavaScript:ajax_action(2368969,2);'><i class="fa fa-retweet"></i></a></div>
 													<div class="left icon_body icon_body_love_cus1"><a href='JavaScript:ajax_action(2368969,1);'><i class="fa fa-heart-o"></i></a></div>
-													<!--end update by 5k 26-7-2016--> <div class="left icon_body icon_body_love_cus1"><a href='http://demonongnghiep.web30s.vn/datafiles/4252/upload/images/14750449112698_3-1.jpg' class='lightbox'><i class="fa fa-search-plus"></i></a></div>
+													<!--end update by 5k 26-7-2016--> <div class="left icon_body icon_body_love_cus1"><a href='' class='lightbox'><i class="fa fa-search-plus"></i></a></div>
 												</div>
 											</div>
 											<div class="product-bottom">
@@ -260,24 +267,8 @@
 
 												<div class="social_network_right">
 													<ul class="social_links"><li class="zalo">
-														<div class="zalo-share-button" data-href="http://demonongnghiep.web30s.vn/Dua-leo-336928" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize=false></div>
+														<div class="zalo-share-button" data-href="<?php echo base_url()?>san-pham/<?php echo $info[0] -> slug; ?>-<?php echo $info[0] ->id;?>.html" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize=false></div>
 														<script src="https://sp.zalo.me/plugins/sdk.js"></script>
-													</li><li class="twitter">
-														<script>window.twttr = (function(d, s, id) {
-															var js, fjs = d.getElementsByTagName(s)[0],
-															t = window.twttr || {};
-															if (d.getElementById(id)) return t;
-															js = d.createElement(s);
-															js.id = id;
-															js.src = "//platform.twitter.com/widgets.js";
-															fjs.parentNode.insertBefore(js, fjs);
-															t._e = [];
-															t.ready = function(f) {
-																t._e.push(f);
-															};
-															return t;
-														}(document, "script", "twitter-wjs"));</script>
-														<a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=http://demonongnghiep.web30s.vn/Dua-leo-336928"></a>
 													</li><li class="facebook">
 														<script>
 															if (!document.getElementById('fb-root')) {
@@ -290,7 +281,7 @@
                           fjs.parentNode.insertBefore(js, fjs);
                       }(document, 'script', 'facebook-jssdk'));
 															}
-														</script><div class="fb-share-button" data-layout="button" data-href="http://demonongnghiep.web30s.vn/Dua-leo-336928"></div>
+														</script><div class="fb-share-button" data-layout="button" data-href="<?php echo base_url()?>san-pham/<?php echo $info[0] -> slug; ?>-<?php echo $info[0] ->id;?>.html"></div>
 													</li></ul>                </div>
 												</div>
 											</div>
@@ -328,7 +319,7 @@
 													<div class='grid-arr'>
 														<div  class='grid-arrival'>
 															<figure>		
-																<a href='http://demonongnghiep.web30s.vn/Bau-336921' class='new-gri' >
+																<a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html' class='new-gri' >
 																	<div class='grid-img'>
 																		<img  src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' class='img-responsive' alt=''>
 																	</div>		
@@ -337,7 +328,7 @@
 														</div>
 														<div class='women'>
 															<div class='gr_price'>
-																<h6><a href='http://demonongnghiep.web30s.vn/Bau-336921'><?php echo $rows -> name; ?></a></h6>
+																<h6><a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'><?php echo $rows -> name; ?></a></h6>
 															</div>
 														</div>
 													</div>
@@ -372,10 +363,10 @@
 										?>  
 										<div class='recent-posts-info'>
 											<div class='posts-left sngl-img'>
-												<a href=''> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
+												<a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
 											</div>
 											<div class='posts-right'>
-												<h5><a href=''><?php echo $rows -> name; ?></a></h5>
+												<h5><a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'><?php echo $rows -> name; ?></a></h5>
 											</div>
 											<div class='clearfix'> </div>
 										</div>

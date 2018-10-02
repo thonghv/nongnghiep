@@ -1,108 +1,67 @@
 <div class="categories-section">
     <div class="container">
         <div class="footer-grids">
-            <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 col-foot-1">
-                <div class="ul_foot cat wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
-                    <h3>Về chúng tôi</h3>
-                    <ul>
-                        <li>
-                            <p><?php echo $this->data->getWebAbout(); ?></p>                        
-                        </li>
-                    </ul>
-                </div>
-            </div>
-                <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 col-foot-2">
-                    <div class="ul_foot cat wow bounceIn animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;">
-                        <h3>Giới thiệu thêm</h3>
-                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1">
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> 
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Giới Thiệu Về Công Ty</a>
-                            </li>
-                        </ul>                
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 col-foot-2">
-                    <div class="ul_foot cat wow bounceInUp animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInUp;">
-                        <h3>Dịch vụ thêm</h3>
-                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1">
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Cung ứng phân bón</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 col-foot-2">
-                    <div class="ul_foot cat wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">      
-                        <h3>Thông tin thêm</h3>
-                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1">
-                            <li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i>
-                                <a class="a_navi_bottom a_navi_bottom_cus1" href="">Chính Sách Riêng Tư</a>
-                            </li>
-                           
-                        </ul>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            
+            <div class="clearfix"></div>
         </div>
     </div>
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            var w_document      = $(window).width();
-            if(w_document > 479 && w_document < 992)
-            {
-                var height_foot     = 0;
-                $(".ul_foot ul").each(function() {
-                 if(height_foot   < $(this).height())
-                 {
-                    height_foot = $(this).height();
-                }
-            });
-                if(height_foot     != 0) $(".ul_foot ul").height(height_foot);
-            }   
+</div>
+<script type="text/javascript">
+    $( document ).ready(function() {
+        var w_document      = $(window).width();
+        if(w_document > 479 && w_document < 992)
+        {
+            var height_foot     = 0;
+            $(".ul_foot ul").each(function() {
+               if(height_foot   < $(this).height())
+               {
+                height_foot = $(this).height();
+            }
         });
+            if(height_foot     != 0) $(".ul_foot ul").height(height_foot);
+        }   
+    });
 
-    </script>
-    <div class="footer-section">
-        <div class="container">
-            <div class="footer-top">
-                <div class="social-icons wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
-                    <a href="Mở rộng 5" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="Mở rộng 7" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                </div>
+</script>
+<div class="footer-section">
+    <div class="container">
+        <div class="footer-top">
+            <div class="social-icons wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
+                <a href="Mở rộng 5" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="Mở rộng 7" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
             </div>
-            <div class="footer-middle wow fadeInDown Big animated animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDown;">
-                <div class="bottom-menu">
-                    <ul>
-                        <li><a href="<?php echo base_url();?>">trang chủ</a></li>
-                        <li><a href="<?php echo base_url();?>gioi-thieu.html/">giới thiệu</a></li>
-                        <li><a href="/San-pham">sản phẩm</a></li>
-                        <li><a href="http://demonongnghiep.web30s.vn/info/1/dich-vu/">bài viết khoa học</a></li>
-                        <li><a href="http://demonongnghiep.web30s.vn/info/5/tuyen-dung/">tuyển dụng</a></li>
-                        <li><a href="http://demonongnghiep.web30s.vn/contact/">liên hệ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
-                <p><span class="footer_copyright"><a target="_blank" href="https://web30s.vn/" title="Thiết Kế Website" class="a_copyright">Design by Pine Team Code<img src="<?php echo base_url()?>public/img/forest.png" style="margin-left: 8px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer"></a></span></p>
-            </div>
-            <script type="text/javascript">
-                $(document).ready(function() {                      
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                });
-            </script>
-            <a href="#" id="toTop" style="display: block;"><span id="toTopHover"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
         </div>
+        <div class="footer-middle wow fadeInDown Big animated animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDown;">
+            <div class="bottom-menu">
+                <ul>
+                    <li><a href="<?php echo base_url();?>">trang chủ</a></li>
+                    <li><a href="<?php echo base_url()?>gioi-thieu.html">giới thiệu</a></li>
+                    <li><a href="">sản phẩm</a></li>
+                    <li><a href="<?php echo base_url()?>bai-viet-khoa-hoc.html">bài viết khoa học</a></li>
+                    <li><a href="<?php echo base_url()?>tuyen-dung.html">tuyển dụng</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
+            <p><span class="footer_copyright"><a target="_blank" href="https://web30s.vn/" title="Thiết Kế Website" class="a_copyright">Design by Pine Team Code<img src="<?php echo base_url()?>public/img/forest.png" style="margin-left: 8px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer"></a></span></p>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {                      
+                $().UItoTop({ easingType: 'easeOutQuart' });
+            });
+        </script>
+        <a href="#" id="toTop" style="display: block;"><span id="toTopHover"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
     </div>
-    <script>
-        if ($('a.lightbox').length > 0) {
-            $('a.lightbox').divbox();
-        }
-    </script>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
+</div>
+<script>
+    if ($('a.lightbox').length > 0) {
+        $('a.lightbox').divbox();
+    }
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;//vi_VN //en_US
   js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=164566120964750";
   fjs.parentNode.insertBefore(js, fjs);

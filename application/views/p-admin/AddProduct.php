@@ -113,15 +113,7 @@
                       <textarea class="form-control" rows="3" id = "overview" name = "overview" placeholder="Giới thiệu tổng quan"></textarea>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="price" class="col-sm-3 control-label">
-                      Giá Bán
-                    </label>
-
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" id="price" name = "price" placeholder="Giá bán">
-                    </div>
-                  </div>
+                  
                   <div class="form-group">
                     <label for="price" class="col-sm-3 control-label">
                       Hiển Thị Top

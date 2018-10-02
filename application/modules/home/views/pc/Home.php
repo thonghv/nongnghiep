@@ -20,15 +20,6 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
     <meta name="robots" content="index,follow"/>
     <meta name="keywords" content="">
 
-    <meta property="fb:app_id" content="485481295145208" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="">
-    <meta property="og:image:width" content="200" />
-    <meta property="og:image:height" content="200" />
-
     <link rel="shortcut icon" type="image/x-icon" href="http://web30s.vn/images/favicon.ico"/>
     <script src="<?php echo base_url()?>public/js/pc/jquery-1.8.2.min.js"></script>
     <link href="<?php echo base_url()?>public/css/pc/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
@@ -107,11 +98,11 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
     <div class="dv-header">
         <div id="logo">
             <h1 class="logo">
-                <a href="https://web30s.vn/"><img src="http://web30s.vn/images/logo.png" alt=""></a>
+                <a href="<?php echo base_url()?>"><img src="http://web30s.vn/images/logo.png" alt=""></a>
             </h1>
         </div>
         <div class="template_id">
-            <a target="_blank" href="http://demonongnghiep.web30s.vn/">
+            <a target="" href="<?php echo base_url()?>">
                 <?php echo $this->data->getWebName(); ?>
             </a>
         </div>
@@ -173,29 +164,29 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
                                 <div class="header-grids">
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[0])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[0] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[0] -> slug; ?>-<?php echo $topInfo[0] ->id;?>.html"><img src="<?php if(isset($topInfoImg[0])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[0] -> img_name; }?>" class="img-responsive" alt=""></a>
                                             <a href=""><h4><?php if(isset($topInfo[0])) { echo $topInfo[0] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[0])) { echo $topInfo[0] -> overview;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow fadeInDownBig animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDownBig;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[1])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[1] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[1] -> slug; ?>-<?php echo $topInfo[1] ->id;?>.html"><img src="<?php if(isset($topInfoImg[1])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[1] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[1] -> slug; ?>-<?php echo $topInfo[1] ->id;?>.html"><h4><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow fadeInUpBig animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUpBig;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[2])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[2] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[2])) { echo $topInfo[2] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[2] -> slug; ?>-<?php echo $topInfo[2] ->id;?>.html"><img src="<?php if(isset($topInfoImg[2])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[2] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[2] -> slug; ?>-<?php echo $topInfo[2] ->id;?>.html"><h4><?php if(isset($topInfo[2])) { echo $topInfo[2] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[2])) { echo $topInfo[2] -> overview;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[3])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[3] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[3])) { echo $topInfo[3] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[3] -> slug; ?>-<?php echo $topInfo[3] ->id;?>.html"><img src="<?php if(isset($topInfoImg[3])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[3] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[3] -> slug; ?>-<?php echo $topInfo[3] ->id;?>.html"><h4><?php if(isset($topInfo[3])) { echo $topInfo[3] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[3])) { echo $topInfo[3] -> overview;} ?></p>
                                         </div>
                                     </div>              
@@ -241,7 +232,7 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
                                             <div class="grid-arr">
                                                 <div class="grid-arrival">
                                                     <figure>        
-                                                        <a href="" class="new-gri">
+                                                        <a href="<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html" class="new-gri">
                                                             <div class="grid-img">
                                                                 <img src="<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>" class="img-responsive" alt="">
                                                             </div>      
@@ -250,7 +241,7 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
                                                 </div>
                                                 <div class="women">
                                                     <div class="gr_price">
-                                                        <h6><a href=""><?php echo $rows -> name; ?></a></h6>
+                                                        <h6><a href="<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html"><?php echo $rows -> name; ?></a></h6>
                                                     </div>
                                                     <!-- <a href='/cart-add/2368969/' class='my-cart-b item_add'>MUA SP</a> -->
                                                 </div>
@@ -265,107 +256,7 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
                             <?php endforeach; }?>
 
                         </div>
-                        <div class="work-section wow bounceIn animated" data-wow-delay="0.4s" style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
-                         <div class="container">
-                             <h3>Hình Ảnh</h3>
-                             <div class="latest-grids">
-                                <div class="latest-grid1">
-                                    <div class="col-md-12">
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750351352074_1.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750351352074_1.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750351658952_2.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750351658952_2.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750351838055_3.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750351838055_3.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750351982732_4.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750351982732_4.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750352086956_5.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750352086956_5.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750352206878_6.png" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750352206878_6.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750353608097_7.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750353608097_7.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 col-sm-4 col-xs-6 col-min-12 nobostrap">
-                                            <div class="latest-grid work">
-                                                <a href="http://cdn.web30s.vn/datafiles/4252/upload/images/14750353729660_8.jpg" class="swipebox">
-                                                    <img src="http://cdn.web30s.vn/datafiles/4252/upload/_thumbs/images/14750353729660_8.jpg" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    <div class="textbox">
-                                                        <img src="/templates/300-up-222/images/magnify.png" class="img-responsive" alt="mở rộng 1 - không xài">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
+                        
                     </div>
   
 

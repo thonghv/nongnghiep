@@ -157,7 +157,7 @@ class MAdmin extends CI_Model {
 
     /* Get all product */
     public function getProducts() {
-        $query=$this->db->query('SELECT p.id,p.name as product_name, p.slug, g.name as group_name, s.name as menu_name, p.overview, p.price, p.content FROM p_product p '.
+        $query=$this->db->query('SELECT p.id,p.name as product_name, p.slug, g.name as group_name, s.name as menu_name, p.overview, p.price, p.content,p.is_show FROM p_product p '.
         'JOIN p_group_menu g on p.group_menu_id = g.id JOIN p_sub_menu s on p.sub_menu_id = s.id');
         return $query->result();
     }

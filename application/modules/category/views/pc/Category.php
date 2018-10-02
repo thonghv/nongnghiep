@@ -3,21 +3,15 @@
 <html>
 <head>
 
-	<title>Category ....</title>
+	<title>
+		<?php echo $categoryName ?> | <?php echo $this->data->getWebTitle(); ?>
+        ?>
+	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 	<meta name="description" content="<?php echo $this->data->getWebTitle(); ?>"/>
 	<meta name="robots" content="index,follow"/>
 	<meta name="keywords" content="">
-
-	<meta property="fb:app_id" content="485481295145208" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="">
-	<meta property="og:image:width" content="200" />
-	<meta property="og:image:height" content="200" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="http://web30s.vn/images/favicon.ico"/>
 	<script src="<?php echo base_url()?>public/js/pc/jquery-1.8.2.min.js"></script>
@@ -106,11 +100,11 @@
 <div class="dv-header">
 	<div id="logo">
 		<h1 class="logo">
-			<a href="https://web30s.vn/"><img src="http://web30s.vn/images/logo.png" alt=""></a>
+			<a href="<?php echo base_url()?>"><img src="http://web30s.vn/images/logo.png" alt=""></a>
 		</h1>
 	</div>
 	<div class="template_id">
-		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
+		<a target="_blank" href="<?php echo base_url()?>">
 			<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
@@ -170,7 +164,7 @@
 			<div class="dv-dssp">
 				<div class="container">	
 					<div class="col-md-12">
-						<h2 class="type text-center bre_sptintuc">Nhóm trái cây</h2>
+						<h2 class="type text-center bre_sptintuc"><?php echo $categoryName; ?></h2>
 					</div>
 					<div class="col-md-9 col-sm-8 col-xs-12 col-min-12 dv-ndung-sptt nobostrap" >
 						<div class="service-grids">
@@ -184,7 +178,7 @@
 									<div class='grid-arr'>
 										<div  class='grid-arrival'>
 											<figure>		
-												<a href='' class='new-gri' >
+												<a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html' class='new-gri' >
 													<div class='grid-img'>
 														<img  src='<?php echo base_url()?>public/img-slide/<?php echo($rows -> img_name); ?>' class='img-responsive' alt=''>
 													</div>		
@@ -193,7 +187,7 @@
 										</div>
 										<div class='women'>
 											<div class='gr_price'>
-												<h6 style = "margin-bottom: 0px"><a href=''><?php echo $rows -> name; ?></a></h6>
+												<h6 style = "margin-bottom: 0px"><a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'><?php echo $rows -> name; ?></a></h6>
 											</div>
 										</div>
 									</div>
@@ -228,10 +222,10 @@
 								?>  
 							<div class='recent-posts-info'>
 								<div class='posts-left sngl-img'>
-									<a href=''> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
+									<a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'> <img src='<?php echo base_url()?>public/img-slide/<?php echo $rows -> img_name; ?>' alt='Chanh giây' style='width: 90%;' /> </a>
 								</div>
 								<div class='posts-right'>
-									<h5><a href='http://demonongnghiep.web30s.vn/Chanh-giay-336920'><?php echo $rows -> name; ?></a></h5>
+									<h5><a href='<?php echo base_url()?>san-pham/<?php echo $rows -> slug; ?>-<?php echo $rows ->id;?>.html'><?php echo $rows -> name; ?></a></h5>
 								</div>
 								<div class='clearfix'> </div>
 							</div>

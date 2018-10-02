@@ -45,7 +45,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          Giới Thiệu
+         <?php echo $post_name; ?>
         </h1>
         <ol class="breadcrumb">
           <li><a href="<?php echo base_url()?>p-admin/dashboard"><i class="fa fa-dashboard"></i>Bảng Tin</a></li>
@@ -60,11 +60,23 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
               <div class="box-header with-border">
-                <h3 class="box-title"></h3>
+                <!-- /.Alert success -->
+                <?php
+                if(!isset( $_SESSION )) 
+                { 
+                  session_start (); 
+                } 
+                if($this->session->userdata('ok')!=NULL)
+                  {?>   
+                    <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <i class="icon fa fa-check"></i> Cập nhập dữ liệu thành công!
+                    </div>
+                  <?php } ?>
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form class="form-horizontal" enctype="multipart/form-data" id = "frm_article" action="<?php echo base_url(); ?>p-admin/article/onUpdate" method="post">
+              <form class="form-horizontal" enctype="multipart/form-data" id = "frm_article" action="<?php echo base_url(); ?>p-admin/posts/onUpdate/<?php echo $post_type; ?>" method="post">
                 <div class="box-body">
                   
                   <div class="form-group">
@@ -129,6 +141,6 @@
  <script src="<?php echo base_url()?>public/admin/js/jquery.slimscroll.min.js"></script>
  <script src="<?php echo base_url()?>public/admin/js/me.js"></script>
 
-</script>
+<?php $this->session->unset_userdata('ok'); ?>
 </body>
 </html>

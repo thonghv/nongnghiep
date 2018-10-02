@@ -18,10 +18,13 @@ class Category extends CI_Controller{
 
 	public function getProducts($subMenuId) {
 
+		$this->load->Model("MAdmin");
+		$subMenuInfo = $this->MAdmin->getGroupSubMenuInfo($subMenuId);
+
 		/* Start pagination */
 		/**/
 
-		$limit = 1;
+		$limit = 6;
 		$this->load->library('pagination'); 
 		$infoNum = $this->MCategory->getCountProducts($subMenuId);
 
@@ -30,13 +33,13 @@ class Category extends CI_Controller{
 			$offset = 0;
 		}
 
-		$config['base_url'] = site_url() . 'category?getproducts/3?';
+		$config['base_url'] = site_url() . $subMenuInfo[0] -> slug.'-'.$subMenuId.'.html?';
 		$config['total_rows'] = $infoNum[0] -> num;
 		$config['per_page'] = $limit;
-		$config['prev_link'] 	= 'Lùi Trang';
-		$config['next_link'] 	= 'Trang Kế';
-		$config['last_link'] 	= 'Cuối';
-		$config['first_link']	= 'Đầu';
+		$config['prev_link'] 	= '‹';
+		$config['next_link'] 	= '›';
+		$config['last_link'] 	= '»';
+		$config['first_link']	= '«';
 		$config['page_query_string'] = TRUE;
 		$this->pagination->initialize($config);
 		$paginator = $this->pagination->create_links(); 
@@ -44,8 +47,6 @@ class Category extends CI_Controller{
 		/**/
 		/*  End pagination */
 
-		$this->load->Model("MAdmin");
-		$subMenuInfo = $this->MAdmin->getGroupSubMenuInfo($subMenuId);
 		$lstSubMenu = $this->MAdmin->getGroupSubMenuById($subMenuInfo[0]->group_id);
 
 		$products = $this->MCategory->getProducts($subMenuId, $offset, $limit);
@@ -56,6 +57,8 @@ class Category extends CI_Controller{
 
 			'lstSubMenu' => $lstSubMenu,
 			'productsTop' => $productsTop,
+
+			'categoryName' => $subMenuInfo[0]->name,
 		);
 
 		$this->onLoadView('Category', $data);

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Article extends CI_Controller {
+class Posts extends CI_Controller {
 
 	public function __construct(){
         parent::__construct();
@@ -32,21 +32,108 @@ class Article extends CI_Controller {
 		$this->load->view('p-admin/Article', $data);
 	}
 
+    public function introduce()
+    {   
+        if($this->session->userdata('name_admin') == NULL)
+        {
+            redirect(base_url()."p-admin/login");
+        }
+        
+        // ARTICLE_ABOUT_TYPE
+        $ARTICLE_ABOUT_TYPE = 1;
+
+        $data = array(
+            'editor'  => $this->tinymce(),
+
+            'post_name' => 'Giới Thiệu',
+            'post_type' => 1,
+        );
+
+        $this->load->Model('MAdmin');
+        $content = $this->MAdmin->getArticleById($ARTICLE_ABOUT_TYPE);
+        if(count($content) > 0) {
+            $data['content'] = $content[0] -> content;
+        }
+        
+        $this->load->view('p-admin/Article', $data);
+    }
+
+    public function recruiment()
+    {   
+        if($this->session->userdata('name_admin') == NULL)
+        {
+            redirect(base_url()."p-admin/login");
+        }
+        
+        // ARTICLE_ABOUT_TYPE
+        $ARTICLE_ABOUT_TYPE = 2;
+
+        $data = array(
+            'editor'  => $this->tinymce(),
+            'post_name' => 'Tuyển Dụng',
+            'post_type' => 2,
+        );
+
+        $this->load->Model('MAdmin');
+        $content = $this->MAdmin->getArticleById($ARTICLE_ABOUT_TYPE);
+        if(count($content) > 0) {
+            $data['content'] = $content[0] -> content;
+        }
+        
+        $this->load->view('p-admin/Article', $data);
+    }
+
+    public function article()
+    {   
+        if($this->session->userdata('name_admin') == NULL)
+        {
+            redirect(base_url()."p-admin/login");
+        }
+        
+        // ARTICLE_ABOUT_TYPE
+        $ARTICLE_ABOUT_TYPE = 3;
+
+        $data = array(
+            'editor'  => $this->tinymce(),
+            'post_name' => 'Bài Viết Khoa Học',
+            'post_type' => 3,
+        );
+
+        $this->load->Model('MAdmin');
+        $content = $this->MAdmin->getArticleById($ARTICLE_ABOUT_TYPE);
+        if(count($content) > 0) {
+            $data['content'] = $content[0] -> content;
+        }
+        
+        $this->load->view('p-admin/Article', $data);
+    }
+
+
 	/**
      * On update 
      */
-    public function onUpdate(){
+    public function onUpdate($type){
 
 		$data = array(
             "content" => $this->input->post("content"),
         );
 
         $this->load->Model('MAdmin');
-        $productId = $this->MAdmin->updateArticle(1, $data);
+        $productId = $this->MAdmin->updateArticle($type, $data);
 
-        $this->session->unset_userdata('ok');
+        $data_session = array(
+            "ok" => 'ok',           
+        );
+        $this->session->set_userdata($data_session);
 
-        redirect(base_url()."p-admin/article");
+        if($type  == 1) {
+            redirect(base_url()."p-admin/posts/introduce");
+        } else if($type == 2) {
+            redirect(base_url()."p-admin/posts/recruiment");
+        } else {
+            redirect(base_url()."p-admin/posts/article");
+        }
+        
         
     }
 

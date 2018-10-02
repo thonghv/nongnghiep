@@ -3,21 +3,16 @@
 <html>
 <head>
 
-	<title>Giới Thiệu ....</title>
+	<title>
+		<?php echo $nameType; ?> | <?php echo $this->data->getWebTitle(); ?>
+        ?>
+	</title>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 	<meta name="description" content="<?php echo $this->data->getWebTitle(); ?>"/>
 	<meta name="robots" content="index,follow"/>
 	<meta name="keywords" content="">
-
-	<meta property="fb:app_id" content="485481295145208" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="">
-	<meta property="og:image:width" content="200" />
-	<meta property="og:image:height" content="200" />
 
 	<link rel="shortcut icon" type="image/x-icon" href="http://web30s.vn/images/favicon.ico"/>
 	<script src="<?php echo base_url()?>public/js/pc/jquery-1.8.2.min.js"></script>
@@ -101,11 +96,11 @@
 <div class="dv-header">
 	<div id="logo">
 		<h1 class="logo">
-			<a href="https://web30s.vn/"><img src="http://web30s.vn/images/logo.png" alt=""></a>
+			<a href="<?php echo base_url()?>"><img src="http://web30s.vn/images/logo.png" alt=""></a>
 		</h1>
 	</div>
 	<div class="template_id">
-		<a target="_blank" href="http://demonongnghiep.web30s.vn/">
+		<a target="" href="<?php echo base_url()?>">
 		<?php echo $this->data->getWebName(); ?>
 		</a>
 	</div>
@@ -165,18 +160,18 @@
 					<div class="container">
 						<div class="col-md-12">
 							<div class='global_left_panel global_left_panel_cus1' style="width: 25%; float: left;">
-								<div class="global_gioithieu11 global_gioithieu11_cus1">Giới thiệu thêm</div>
-								<a href='/Gioi-Thieu-Ve-Cong-Ty-336941' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Giới Thiệu Về Công Ty</a>
-
-								<div class="global_dichvu10 global_dichvu10_cus1">Dịch vụ thêm</div>
-								<a href='/Cung-ung-vat-tu-may-moc-nong-nghiep-336948' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Cung ứng vật tư, máy móc nông nghiệp</a>
-								<div class="global_thongtin12 global_thongtin12_cus1">Thông tin thêm</div>
-								<a href='/Chinh-Sach-Rieng-Tu-336952' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Chính Sách Riêng Tư</a>
+								<div class="global_gioithieu11 global_gioithieu11_cus1">Bảng Tin</div>
+								<a href='<?php echo base_url()?>gioi-thieu.html' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Giới Thiệu Về Công Ty</a>
+								<a href='<?php echo base_url()?>bai-viet-khoa-hoc.html' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Bài Viết Khoa Học</a>
+								<a href='<?php echo base_url()?>tuyen-dung.html' class='global_subnote_fa global_subnote_fa_cus1'><i class='' aria-hidden='true'></i> Tuyển Dụng</a>
+								
 							</div>
 							<div class="global_right_panel_info right_panel_info_cus1" style="width: 70%; float: right;">
-								<div class="head_title_center title_info_cus1 title_info_cus2">Giới thiệu</div>
-								<div class="boxstyle_center text_color title_center_z_cus1 title_center_z_cus2">
+								<div class="head_title_center title_info_cus1 title_info_cus2"><?php echo $nameType; ?></div>
+								<div class="boxstyle_center text_color title_center_z_cus1 title_center_z_cus2" style = "text-align: justify;">
 									<!-- NỘI DUNG -->
+									<?php echo $content[0] -> content; ?>
+									<!-- END NỘI DUNG -->
 									<script>
 										var div_fb_like = document.getElementById('fb-like');
 										if (div_fb_like) {

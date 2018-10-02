@@ -46,7 +46,7 @@ class AddProduct extends CI_Controller {
             "slug" => $slug,
             "group_menu_id" => $this->input->post("group_menu"),
             "sub_menu_id" => $this->input->post("sub_menu"),
-            "price" => $this->input->post("price"),
+            "img_name" => 'NULL',
             "is_show" => $is_show,
             "overview" => $this->input->post("overview"),
             "content" => $this->input->post("content"),
@@ -90,6 +90,13 @@ class AddProduct extends CI_Controller {
 			/*upload hinh anh*/
 			$this->MAdmin->do_upload("userfile");
 		}
+
+        if($cpt > 0) {
+            $dataImg = array(
+                "img_name" => $files['userfile']['name'][0], 
+            );
+            $this->MAdmin->updateProduct($productId, $dataImg);
+        }
 	}
 
 	public function tinymce()

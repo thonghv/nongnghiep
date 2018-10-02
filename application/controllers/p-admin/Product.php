@@ -67,7 +67,6 @@ class Product extends CI_Controller {
             "slug" => $slug,
             "group_menu_id" => $this->input->post("group_menu"),
             "sub_menu_id" => $this->input->post("sub_menu"),
-            "price" => $this->input->post("price"),
             "is_show" => $this->input->post("is_show"),
             "overview" => $this->input->post("overview"),
             "content" => $this->input->post("content"),
@@ -128,6 +127,23 @@ class Product extends CI_Controller {
                 }
             }
 		}
+
+        if($cpt > 0) {
+            if($files['userfile']['name'][0] != Null && !empty($files['userfile']['name'][0])){   
+                $dataImg = array(
+                    "img_name" => $files['userfile']['name'][0], 
+                );
+                $this->MAdmin->updateProduct($productId, $dataImg);
+            } else {
+                $nameImg = $this->input->post("input_img_0");
+                if($nameImg != null) {
+                    $dataImg = array(
+                        "img_name" => $files['userfile']['name'][0], 
+                    );
+                    $this->MAdmin->updateProduct($productId, $dataImg);
+                }
+            }
+        }
 	}
 
 	/**

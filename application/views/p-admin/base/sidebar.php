@@ -30,9 +30,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Giới Thiệu</a></li>
-          <li><a href="<?php echo base_url()?>p-admin/"><i class="fa fa-circle-o"></i>Tuyển Dụng</a></li>
-          <li><a href="<?php echo base_url()?>p-admin/product"><i class="fa fa-circle-o"></i>Bài Viết Khoa Học</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/posts/introduce"><i class="fa fa-circle-o"></i>Giới Thiệu</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/posts/recruiment"><i class="fa fa-circle-o"></i>Tuyển Dụng</a></li>
+          <li><a href="<?php echo base_url()?>p-admin/posts/article"><i class="fa fa-circle-o"></i>Bài Viết Khoa Học</a></li>
         </ul>
       </li>
       <li class="treeview">
