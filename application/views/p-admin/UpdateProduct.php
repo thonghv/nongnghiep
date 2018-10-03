@@ -193,6 +193,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                   <button type="submit" class="btn btn-info pull-right">Lưu Thay Đổi</button>
+                  <a href="<?php echo base_url()?>p-admin/product.html"><button type="button" class="btn btn-primary pull-right" style="margin-right: 10px;">Hủy Bỏ</button></a>
                 </div>
                 <!-- /.box-footer -->
               </form>

@@ -106,9 +106,15 @@ class Product extends CI_Controller {
 
             if($_FILES['userfile']['name'] != Null && !empty($_FILES['userfile']['name'])){   
                 
+                $isAvatar = 0;
+                if($i == 0) {
+                    $isAvatar = 1;
+                }
+
                 $data = array( 
                     'product_id' => $productId,
                     'img_name' => $_FILES["userfile"]["name"],
+                    'is_avatar' => $isAvatar,
                 );
 
                 $this->MAdmin->addProductImg($data);   
@@ -118,9 +124,15 @@ class Product extends CI_Controller {
             } else {
                 $nameImg = $this->input->post("input_img_".$i);
                     if($nameImg != null) {
+
+                    $isAvatar = 0;
+                    if($i == 0) {
+                        $isAvatar = 1;
+                    }
                     $data = array( 
                         'product_id' => $productId,
                         'img_name' => $nameImg,
+                        'is_avatar' => $isAvatar,
                     );
 
                     $this->MAdmin->addProductImg($data);
@@ -138,7 +150,7 @@ class Product extends CI_Controller {
                 $nameImg = $this->input->post("input_img_0");
                 if($nameImg != null) {
                     $dataImg = array(
-                        "img_name" => $files['userfile']['name'][0], 
+                        "img_name" => $nameImg, 
                     );
                     $this->MAdmin->updateProduct($productId, $dataImg);
                 }

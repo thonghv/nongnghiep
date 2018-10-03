@@ -106,19 +106,8 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
 
 <body>
     <div class="dv-header">
-        <div id="logo">
-            <h1 class="logo" style = "border: none;">
-                <a href="<?php echo base_url()?>">
-                    <img style = "height: 30px;" src="http://web30s.vn/images/logo.png" alt=""></a>
-                </h1>
-            </div>
-            <div class="template_id" style = "margin-left: 5px;">
-                <a target="_blank" href="<?php echo base_url()?>">
-                    <?php echo $this->data->getWebName(); ?>
-                </a>
-            </div>
-
-        </div>
+        <?php $this->load->view("base/mobile/info.php"); ?>
+    </div>
 
         <div class="header bg_header" id="home" style = "margin-top: 55px;">
             <div class="slidercontainer">
@@ -179,32 +168,32 @@ if(!isset($_SERVER['HTTP_USER_AGENT']))
                                 <div class="header-grids">
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[0])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[0] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[0] -> slug; ?>-<?php echo $topInfo[0] ->id;?>.html"><img src="<?php if(isset($topInfoImg[0])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[0] -> img_name; }?>" class="img-responsive" alt=""></a>
                                             <a href=""><h4><?php if(isset($topInfo[0])) { echo $topInfo[0] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[0])) { echo $topInfo[0] -> overview;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow fadeInDownBig animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDownBig;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[1])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[1] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[1] -> slug; ?>-<?php echo $topInfo[1] ->id;?>.html"><img src="<?php if(isset($topInfoImg[1])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[1] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[1] -> slug; ?>-<?php echo $topInfo[1] ->id;?>.html"><h4><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[1])) { echo $topInfo[1] -> name;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow fadeInUpBig animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUpBig;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[2])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[2] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[2])) { echo $topInfo[2] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[2] -> slug; ?>-<?php echo $topInfo[2] ->id;?>.html"><img src="<?php if(isset($topInfoImg[2])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[2] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[2] -> slug; ?>-<?php echo $topInfo[2] ->id;?>.html"><h4><?php if(isset($topInfo[2])) { echo $topInfo[2] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[2])) { echo $topInfo[2] -> overview;} ?></p>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-min-12 header-grid">
                                         <div class="header-img1 header-img wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
-                                            <a href=""><img src="<?php if(isset($topInfoImg[3])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[3] -> img_name; }?>" class="img-responsive" alt=""></a>
-                                            <a href=""><h4><?php if(isset($topInfo[3])) { echo $topInfo[3] -> name;} ?></h4></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[3] -> slug; ?>-<?php echo $topInfo[3] ->id;?>.html"><img src="<?php if(isset($topInfoImg[3])) { echo base_url(); ?>public/img-slide/<?php echo $topInfoImg[3] -> img_name; }?>" class="img-responsive" alt=""></a>
+                                            <a href="<?php echo base_url()?>san-pham/<?php echo $topInfo[3] -> slug; ?>-<?php echo $topInfo[3] ->id;?>.html"><h4><?php if(isset($topInfo[3])) { echo $topInfo[3] -> name;} ?></h4></a>
                                             <p><?php if(isset($topInfo[3])) { echo $topInfo[3] -> overview;} ?></p>
                                         </div>
-                                    </div>              
+                                    </div>         
                                     <div class="clearfix"></div>
                                 </div>
                             </div>  

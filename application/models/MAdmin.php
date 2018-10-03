@@ -135,7 +135,7 @@ class MAdmin extends CI_Model {
     public function do_upload($nameimg){
         $config = array('upload_path'   => './public/img-slide',
             'allowed_types' => 'gif|jpg|png',
-            'max_size'      => '4000');
+            'max_size'      => '6000');
         $this->load->library("upload",$config);
         $this->upload->initialize($config);
 

@@ -95,6 +95,15 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label for="company" class="col-sm-3 control-label">
+                        Liên Hệ
+                      </label>
+
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Công ty" value = "<?php echo($infoContact);?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label for="about" class="col-sm-3 control-label">
                         Tổng quan về trang
                       </label>

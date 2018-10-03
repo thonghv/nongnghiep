@@ -23,15 +23,22 @@ class Menus extends CI_Controller {
         $isOldData = false;
         $tabActive = 'MENU_ACTIVE';
         $subMenuFilter = null;
+
         $groupId = 0;
+        if($this->session->userdata('group_menu_id') != NULL) {
+            $groupId = $this->session->userdata('group_menu_id');
+        }
+
         if($this->session->userdata('menu_tab_active') != NULL)
         {
             $isOldData = true;
             $tabActive = $this->session->userdata('menu_tab_active');
             $groupId = $this->session->userdata('group_menu_id');
 
-            $subMenuFilter = $this->MAdmin->getGroupSubMenuById($groupId);
-            $menuInfo = $this->MAdmin->getGroupsMenuById($groupId);
+            if($groupId > 0) {
+                $subMenuFilter = $this->MAdmin->getGroupSubMenuById($groupId);
+                $menuInfo = $this->MAdmin->getGroupsMenuById($groupId);
+            }
         }
 
 		$data=array(
@@ -43,7 +50,7 @@ class Menus extends CI_Controller {
             'groupId' => $groupId,
         );
         
-        if($isOldData) {
+        if($isOldData == true && $groupId > 0) {
             $data['groupName'] = $menuInfo[0] -> name;
         }
 		$this->load->view('p-admin/Menus', $data);
@@ -132,8 +139,6 @@ class Menus extends CI_Controller {
         $groups = $this->MAdmin->getGroupsMenu();
         $subMenu = $this->MAdmin->getGroupSubMenu();
         $subMenuFilter = $this->MAdmin->getGroupSubMenuById($groupId);
-
-        
 
         $tabActive = 'SUB_MENU_ACTIVE';
 		$data = array(

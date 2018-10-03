@@ -21,12 +21,14 @@ class OptionsGeneral extends CI_Controller {
 		$infoAdmin = $this->MConfig->getDesc("username.admin");
 		$infoDesc = $this->MConfig->getDesc("web.name.desc");
 		$infoAbout = $this->MConfig->getDesc("web.about");
+		$infoContact = $this->MConfig->getDesc("web.contact");
 
 		$data=array(
 			'infoTitle' => $infoTitle[0]->desc,
 			'infoAdmin' => $infoAdmin[0]->desc,
 			'infoDesc'  => $infoDesc[0]->desc,
 			'infoAbout' => $infoAbout[0]->desc,
+			'infoContact' => $infoContact[0]->desc,
 		);
 		
 		$this->load->view('p-admin/OptionsGeneral', $data);
@@ -44,6 +46,9 @@ class OptionsGeneral extends CI_Controller {
 
 		$data['desc'] = $this->input->post("company");
 		$this->MConfig->updateData("web.name.desc", $data);
+
+		$data['desc'] = $this->input->post("contact");
+		$this->MConfig->updateData("web.contact", $data);
 
 		$data['desc'] = $this->input->post("about");
 		$this->MConfig->updateData("web.about", $data);

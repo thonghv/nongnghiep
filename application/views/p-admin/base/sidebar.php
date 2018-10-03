@@ -6,7 +6,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview menu-open">
-        <a href="<?php echo base_url()?>p-admin/dashboard>
+        <a href="<?php echo base_url()?>p-admin/dashboard">
           <i class="fa fa-dashboard"></i> <span>Bảng Tin</span>
         </a>
       </li>

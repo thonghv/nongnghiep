@@ -38,6 +38,16 @@ class Data {
         return $webTitle[0]->desc;
     }
 
+    function getWebContact()
+    {
+        $this->CI->load->Model('MConfig');
+
+        $keyTitle = "web.contact";
+        $webTitle = $this->CI->MConfig->getDesc($keyTitle);
+
+        return $webTitle[0]->desc;
+    }
+
     function getTags()
     {
         $this->CI->load->Model("MCommon");

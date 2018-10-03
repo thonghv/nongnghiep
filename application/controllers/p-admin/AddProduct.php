@@ -80,9 +80,15 @@ class AddProduct extends CI_Controller {
 			$_FILES['userfile']['error']= $files['userfile']['error'][$i];
 			$_FILES['userfile']['size']= $files['userfile']['size'][$i];    
 
+            $isAvatar = 0;
+            if($i == 0) {
+                $isAvatar = 1;
+            }
+
 			$data = array( 
                 'product_id' => $productId,
 				'img_name' => $_FILES["userfile"]["name"],
+                'is_avatar' => $isAvatar,
 			);
 
 			$this->MAdmin->addProductImg($data);   

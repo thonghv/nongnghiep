@@ -209,7 +209,7 @@ a {
     padding: 0;
     color: #fff;
     line-height: 1.7;
-    height: 88px;
+    /* height: 88px; */
     overflow: hidden;
     text-shadow: 1px 1px 1px #06864e
 }
@@ -1133,8 +1133,10 @@ a.b-home:hover {
         padding: 50px 0 40px
     }
     .header-grid img {
-        width: 150px;
-        height: 150px;
+        /*width: 150px;
+        height: 150px;*/
+        width: 180px;
+        height: 180px;
         border: 3px solid #eee;
         margin-bottom: 10px
     }
@@ -1381,8 +1383,8 @@ a.b-home:hover {
     }
     .header-grid img {
         border: 6px solid #eee;
-        width: 80%;
-        height: auto
+        /* width: 80%;
+        height: auto */
     }
     .about-section h3 {
         font-size: 1.5em

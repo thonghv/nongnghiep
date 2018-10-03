@@ -98,16 +98,7 @@
 	</div>
 </div>
 <div class="dv-header">
-	<div id="logo">
-		<h1 class="logo">
-			<a href="<?php echo base_url()?>"><img src="http://web30s.vn/images/logo.png" alt=""></a>
-		</h1>
-	</div>
-	<div class="template_id">
-		<a target="_blank" href="<?php echo base_url()?>">
-			<?php echo $this->data->getWebName(); ?>
-		</a>
-	</div>
+	<?php $this->load->view("base/pc/info.php"); ?>
 
 </div>
 <div class="header bg_header" id="home" style = "margin-top: 55px; min-height: 380px;">
@@ -209,7 +200,7 @@
 									foreach ($lstSubMenu as $rows) :
 										$rows=(object)$rows;
 								?>  
-								<a href="/Nhom-trai-cay-336912" class="list-group-item"><?php echo $rows -> name; ?></a>
+								<a href="<?php echo base_url()?><?php echo $rows->slug ?>-<?php echo $rows->id ?>.html" class="list-group-item"><?php echo $rows -> name; ?></a>
 								<?php endforeach; }?>
 							</div>
 						</div>	

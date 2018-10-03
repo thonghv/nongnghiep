@@ -25,12 +25,6 @@
 </script>
 <div class="footer-section">
     <div class="container">
-        <div class="footer-top">
-            <div class="social-icons wow bounceInLeft animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInLeft;">
-                <a href="Mở rộng 5" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="Mở rộng 7" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </div>
-        </div>
         <div class="footer-middle wow fadeInDown Big animated animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDown;">
             <div class="bottom-menu">
                 <ul>
@@ -43,7 +37,7 @@
             </div>
         </div>
         <div class="footer-bottom wow bounceInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
-            <p><span class="footer_copyright"><a target="_blank" href="https://web30s.vn/" title="Thiết Kế Website" class="a_copyright">Design by Pine Team Code<img src="<?php echo base_url()?>public/img/forest.png" style="margin-left: 8px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer"></a></span></p>
+            <p><span class="footer_copyright"><a target="_blank" href="" title="Thiết Kế Website" class="a_copyright">Design by Pine Team Code<img src="<?php echo base_url()?>public/img/forest.png" style="margin-left: 8px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer"></a></span></p>
         </div>
         <script type="text/javascript">
             $(document).ready(function() {                      
